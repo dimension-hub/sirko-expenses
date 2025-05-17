@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <base target="_top" />
+    <title>Витрати клубу «Сірко»</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#43766c" />
+    <link rel="icon" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js');
+        });
+      }
+    </script>
+    <style>
+      :root {
+        --primary: #43766c;
+        --accent: #ffb84c;
+        --bg: #fefbf6;
+        --text: #222;
+        --radius: 14px;
+        --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html, body {
+        margin: 0;
+        padding: env(safe-area-inset);
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      header {
+        text-align: center;
+        padding: 1rem;
+      }
+      header img {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        text-align: center;
+        font-size: 1.6rem;
+        color: var(--primary);
+        margin: 0.5rem 0;
+      }
+      form {
+        background: #fff;
+        margin: 1rem auto;
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        max-width: 560px;
+        box-shadow: var(--shadow);
+      }
+      label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+      input, select, textarea {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        margin-top: 0.4rem;
+        border-radius: var(--radius);
+        border: 1px solid #ccc;
+        background: #f9f9f9;
+      }
+      input:focus, select:focus, textarea:focus {
+        border-color: var(--accent);
+        background: #fff;
+        outline: none;
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      button {
+        margin-top: 1.5rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        color: white;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Сірко Клуб" />
+      <h2>Витрати клубу «Сірко»</h2>
+    </header>
+    <form id="expenseForm">
+      <label for="info">📄 Що було оплачено?</label>
+      <input type="text" name="info" id="info" required />
+      <label for="category">🗂 Категорія</label>
+      <select name="category" id="category" required>
+        <option value="" disabled selected>Оберіть категорію</option>
+        <option>🏠 Оренда та інфраструктура</option>
+        <option>🔧 Тренери та персонал</option>
+        <option>🦴 Харчування, ласощі, мотивація</option>
+        <option>💼 Адміністративні витрати</option>
+        <option>📢 Реклама та маркетинг</option>
+        <option>🧹 Чистота та гігієна</option>
+        <option>🚗 Транспортні витрати</option>
+        <option>🎓 Освіта і сертифікація</option>
+        <option>📦 Обладнання та ремонт</option>
+        <option>🐶 Витрати на собак клубу</option>
+        <option>📱 Онлайн покупки і підписки</option>
+        <option>📊 Непередбачувані витрати</option>
+      </select>
+      <label for="payer">👤 Ким оплачено</label>
+      <input type="email" name="payer" id="payer" required />
+      <label for="amount">💰 Сума</label>
+      <input type="number" name="amount" id="amount" step="0.01" min="0" required />
+      <label for="date">📆 Дата</label>
+      <input type="date" name="date" id="date" required />
+      <label for="notes">📝 Коментар</label>
+      <textarea name="notes" id="notes"></textarea>
+      <button type="submit">✅ Надіслати витрату</button>
+    </form>
+    <script>
+      document.getElementById('expenseForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+          info: form.info.value.trim(),
+          category: form.category.value,
+          payer: form.payer.value.trim(),
+          amount: form.amount.value,
+          date: form.date.value,
+          notes: form.notes.value.trim(),
+        };
+        google.script.run.withSuccessHandler(() => {
+          alert("✅ Дані успішно надіслані!");
+          form.reset();
+        }).submitExpense(data);
+      });
+    </script>
+  </body>
+</html>
