@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <base target="_top" />
     <title>Витрати клубу «Сірко»</title>
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#43766c" />
     <link rel="icon" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -62,6 +62,7 @@
         border-radius: var(--radius);
         max-width: 560px;
         box-shadow: var(--shadow);
+        display: none;
       }
       label {
         display: block;
@@ -98,6 +99,13 @@
         border-radius: var(--radius);
         cursor: pointer;
       }
+      #unauthorized {
+        display: none;
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        margin-top: 2rem;
+      }
     </style>
   </head>
   <body>
@@ -105,6 +113,21 @@
       <img src="logo.png" alt="Сірко Клуб" />
       <h2>Витрати клубу «Сірко»</h2>
     </header>
+
+    <div id="g_id_onload"
+      data-client_id="YOUR_GOOGLE_CLIENT_ID"
+      data-callback="handleCredentialResponse"
+      data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+    </div>
+
     <form id="expenseForm">
       <label for="info">📄 Що було оплачено?</label>
       <input type="text" name="info" id="info" required />
@@ -134,7 +157,30 @@
       <textarea name="notes" id="notes"></textarea>
       <button type="submit">✅ Надіслати витрату</button>
     </form>
+
+    <div id="unauthorized">
+      ⛔ Доступ дозволено лише для користувачів @sirko.club
+    </div>
+
     <script>
+      function handleCredentialResponse(response) {
+        const idToken = response.credential;
+        const base64Url = idToken.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        const payload = JSON.parse(jsonPayload);
+        const email = payload.email;
+
+        if (email.endsWith('@sirko.club')) {
+          document.getElementById('expenseForm').style.display = 'block';
+          document.querySelector('.g_id_signin').style.display = 'none';
+        } else {
+          document.getElementById('unauthorized').style.display = 'block';
+        }
+      }
+
       document.getElementById('expenseForm').addEventListener('submit', function (e) {
         e.preventDefault();
         const form = e.target;
