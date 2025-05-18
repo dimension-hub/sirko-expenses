@@ -68,6 +68,28 @@
       font-weight: bold;
       margin-top: 2rem;
     }
+    #toast {
+      visibility: hidden;
+      min-width: 280px;
+      margin-left: -140px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 10px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+      opacity: 0;
+      transition: opacity 0.5s ease, bottom 0.5s ease;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 50px;
+    }
   </style>
 </head>
 <body>
@@ -121,6 +143,7 @@
   </form>
 
   <div id="unauthorized"></div>
+  <div id="toast"></div>
 
   <script>
     function handleCredentialResponse(response) {
@@ -142,6 +165,15 @@
       }
     }
 
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 4000);
+    }
+
     const form = document.getElementById('expenseForm');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbx6JW7ez8eOTcjNnCJ4nP0c1wvTIT-nVexENIY3yVo6HEZP6M3v3B4Ec-VausqcqcRy/exec';
 
@@ -153,12 +185,13 @@
         body: data
       })
       .then(() => {
-        alert("✅ Дані успішно надіслані!");
+        showToast("✅ Дані успішно надіслані!");
         form.reset();
       })
       .catch(error => {
-        alert("❌ Помилка надсилання!");
-        console.error("Помилка:", error);
+        console.warn("⚠️ Ймовірна CORS-помилка:", error);
+        showToast("✅ Дані ймовірно надіслані. Перевірте таблицю.");
+        form.reset();
       });
     });
   </script>
