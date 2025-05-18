@@ -68,32 +68,29 @@
       font-weight: bold;
       margin-top: 2rem;
     }
-    #toast {
-      visibility: hidden;
-      min-width: 280px;
-      margin-left: -140px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 10px;
-      padding: 16px;
+    .toast {
       position: fixed;
-      z-index: 1;
-      left: 50%;
       bottom: 30px;
-      font-size: 17px;
-      opacity: 0;
-      transition: opacity 0.5s ease, bottom 0.5s ease;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 9999;
+      animation: fadeInOut 4s ease-in-out forwards;
     }
-    #toast.show {
-      visibility: visible;
-      opacity: 1;
-      bottom: 50px;
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px) translateX(-50%); }
+      10% { opacity: 1; transform: translateY(0) translateX(-50%); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-20px) translateX(-50%); }
     }
   </style>
 </head>
 <body>
-  <div id="logoWrapper" style="text-align: center; margin-top: 1rem;">
+  <div style="text-align: center; margin-top: 1rem;">
     <img src="logo.png" alt="SIRKO" style="width: 96px; height: 96px; border-radius: 16px;">
   </div>
   <h2>Витрати клубу «Сірко»</h2>
@@ -132,7 +129,7 @@
       <option>📊 Непередбачувані витрати</option>
     </select>
     <label for="payer">👤 Ким оплачено</label>
-    <input type="email" name="payer" id="payer" placeholder="вкажіть, будь ласка, корпоративну пошту @sirko.club" required />
+    <input type="email" name="payer" id="payer" placeholder="@sirko.club" required />
     <label for="amount">💰 Сума</label>
     <input type="number" name="amount" id="amount" step="0.01" min="0" required />
     <label for="date">📆 Дата</label>
@@ -143,17 +140,19 @@
   </form>
 
   <div id="unauthorized"></div>
-  <div id="toast"></div>
 
   <script>
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
     function handleCredentialResponse(response) {
       const idToken = response.credential;
-      const base64Url = idToken.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
-        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-      ).join(''));
-      const payload = JSON.parse(jsonPayload);
+      const payload = JSON.parse(atob(idToken.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
       const email = payload.email;
 
       if (email.endsWith('@sirko.club')) {
@@ -165,33 +164,31 @@
       }
     }
 
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.className = "show";
-      setTimeout(() => {
-        toast.className = toast.className.replace("show", "");
-      }, 4000);
-    }
-
-    const form = document.getElementById('expenseForm');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx_rKbDoNodoc462tUvBD2wV7zhoIT31bMdLh0ZPO1AaYa1MJfcKuno4gjN-L0xgMax/exec';
-
-    form.addEventListener('submit', function (e) {
+    document.getElementById('expenseForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const data = new FormData(form);
-      fetch(scriptURL, {
+      const form = e.target;
+      const data = {
+        info: form.info.value,
+        category: form.category.value,
+        payer: form.payer.value,
+        amount: form.amount.value,
+        date: form.date.value,
+        notes: form.notes.value
+      };
+
+      fetch('https://script.google.com/macros/s/AKfycbyXr__EZOUK3LGBlSjSSml5pHjsz5bChhiDmYOLhivCcdTSQIsounJgfIm6k6qUQw3k/exec', {
         method: 'POST',
-        body: data
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
       .then(() => {
         showToast("✅ Дані успішно надіслані!");
         form.reset();
       })
-      .catch(error => {
-        console.warn("⚠️ Ймовірна CORS-помилка:", error);
-        showToast("✅ Дані ймовірно надіслані. Перевірте таблицю.");
-        form.reset();
+      .catch(() => {
+        showToast("⚠️ Помилка! Але, можливо, дані збережено.");
       });
     });
   </script>
