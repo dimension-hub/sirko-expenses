@@ -5,36 +5,6 @@
   <title>Зачекайте…</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex" />
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script>
-    // Заміни на свій client_id з Google Cloud Console
-    const CLIENT_ID = "489497462381-t1ve6ae6jlmg9jm83lkguv5t0l962urc.apps.googleusercontent.com";
-
-    function handleCredentialResponse(response) {
-      const payload = JSON.parse(atob(response.credential.split('.')[1]));
-      const email = payload.email;
-
-      if (email.endsWith("@sirko.club")) {
-        window.location.href = "https://script.google.com/a/macros/sirko.club/s/AKfycbwxYJ22MFCYPSV3U_eu8A-iACHTw-Ov5eDOARuG5x31dd_lnmDzJTa4FH-OsWTyOSRy/exec";
-      } else {
-        document.getElementById("redirect-text").textContent = "⛔ Доступ дозволено лише користувачам @sirko.club";
-      }
-    }
-
-    window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: CLIENT_ID,
-        callback: handleCredentialResponse
-      });
-
-      google.accounts.id.prompt(); // відображає one-tap або автоматичний вхід
-    };
-
-    // Редірект через таймер (резервний варіант)
-    setTimeout(() => {
-      window.location.href = "https://script.google.com/a/macros/sirko.club/s/AKfycbwxYJ22MFCYPSV3U_eu8A-iACHTw-Ov5eDOARuG5x31dd_lnmDzJTa4FH-OsWTyOSRy/exec";
-    }, 3000); // через 3 секунди
-  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,11 +26,16 @@
       color: #43766c;
     }
   </style>
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://script.google.com/a/macros/sirko.club/s/AKfycbzOz_JIE-r6h1hf3RNEb_o0aPFOaiVISN95rcHKgODNyhOnJjegCeeNVqUz0k4FANbu/exec";
+    }, 3000);
+  </script>
 </head>
 <body>
   <div class="box">
-    <p id="redirect-text">⏳ Перенаправляємо на додаток обліку витрат…</p>
-    <p>Якщо редірект не спрацює, <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbwxYJ22MFCYPSV3U_eu8A-iACHTw-Ov5eDOARuG5x31dd_lnmDzJTa4FH-OsWTyOSRy/exec">натисніть тут</a>.</p>
+    <p>⏳ Перенаправляємо на додаток обліку витрат…</p>
+    <p>Якщо редірект не спрацює, <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbzOz_JIE-r6h1hf3RNEb_o0aPFOaiVISN95rcHKgODNyhOnJjegCeeNVqUz0k4FANbu/exec">натисніть тут</a>.</p>
   </div>
 </body>
 </html>
