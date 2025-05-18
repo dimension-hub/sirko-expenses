@@ -1,0 +1,16 @@
+
+{
+  "name": "Sirko Club",
+  "short_name": "Sirko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#43766c",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
