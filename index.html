@@ -1,66 +1,166 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Вхід до обліку витрат</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex" />
+  <title>Вхід до обліку витрат — Sirko</title>
+  <link rel="icon" href="logo.png" />
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script>
-    const CLIENT_ID = "489497462381-fcmpdnjnj68j3iu7h6m8p9o2lp878d67.apps.googleusercontent.com";
+  <style>
+    /* Reset для уніфікації стилів */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    function handleCredentialResponse(response) {
-      const payload = JSON.parse(atob(response.credential.split('.')[1]));
-      const email = payload.email;
-
-      if (email.endsWith("@sirko.club")) {
-        window.location.href = "https://script.google.com/a/macros/sirko.club/s/AKfycbz7cM5gdV5dUp1oh1rMLPPiE3bNyMYMlt3ERhG1gFRqPS6fm4ptRD1yocJhw1KYrAI3/exec";
-      } else {
-        document.getElementById("redirect-text").textContent =
-          "⛔ Доступ дозволено лише для користувачів @sirko.club";
-      }
+    :root {
+      --bg: #fefbf6;
+      --card: #ffffff;
+      --text: #222222;
+      --accent: #43766c;
+      --highlight: #ffb84c;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --radius: 12px;
+      --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      --redirect-duration: 4s;
     }
 
-    window.onload = function () {
+    html, body {
+      height: 100%; width: 100%;
+      font-family: var(--font);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .container {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 360px;
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin: 0 auto 1rem;
+      animation: scaleIn 0.8s ease-out both;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    #redirect-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 5px solid rgba(67,118,108,0.2);
+      border-top-color: var(--highlight);
+      border-radius: 50%;
+      margin: 1rem auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-bar {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 4px;
+      background: rgba(67,118,108,0.2);
+    }
+
+    .progress-bar .fill {
+      width: 0%; height: 100%;
+      background: var(--highlight);
+      animation: fillProgress var(--redirect-duration) ease-in-out forwards;
+    }
+
+    @keyframes fillProgress {
+      100% { width: 100%; }
+    }
+
+    a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 400px) {
+      .container { padding: 1.5rem; }
+      #redirect-text { font-size: 0.9rem; }
+      .spinner { width: 36px; height: 36px; border-width: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Sirko Logo" class="logo" />
+    <p id="redirect-text">
+      ⏳ Авторизуємо… Якщо нічого не відбувається, 
+      <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbzvSAdWET2gEci6KNbTGJ69tIWsZTX1ED9rBE15lI9S2XF9YI7bifZlx7-wAud2ruSf/exec">
+        натисніть тут
+      </a>.
+    </p>
+    <div class="spinner"></div>
+    <div class="progress-bar"><div class="fill"></div></div>
+  </div>
+
+  <script>
+    const CLIENT_ID = "489497462381-fcmpdnjnj68j3iu7h6m8p9o2lp878d67.apps.googleusercontent.com";
+    const TARGET_URL = "https://script.google.com/a/macros/sirko.club/s/AKfycbzvSAdWET2gEci6KNbTGJ69tIWsZTX1ED9rBE15lI9S2XF9YI7bifZlx7-wAud2ruSf/exec";
+
+    window.onload = () => {
       google.accounts.id.initialize({
         client_id: CLIENT_ID,
         callback: handleCredentialResponse,
         auto_select: false
       });
       google.accounts.id.prompt();
+
+      // Резервний редірект через час анімації
+      setTimeout(() => {
+        window.location.href = TARGET_URL;
+      }, 4000);
     };
 
-    // Резервний редірект
-    setTimeout(() => {
-      window.location.href = "https://script.google.com/a/macros/sirko.club/s/AKfycbz7cM5gdV5dUp1oh1rMLPPiE3bNyMYMlt3ERhG1gFRqPS6fm4ptRD1yocJhw1KYrAI3/exec";
-    }, 5000);
+    function handleCredentialResponse(response) {
+      const payload = JSON.parse(
+        atob(response.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))
+      );
+      if (payload.email.endsWith("@sirko.club")) {
+        window.location.href = TARGET_URL;
+      } else {
+        document.getElementById('redirect-text').textContent =
+          '⛔ Доступ дозволено лише для користувачів @sirko.club';
+        document.querySelector('.spinner').style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+      }
+    }
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fefbf6;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      margin: 0;
-    }
-    .box {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #43766c;
-    }
-  </style>
-</head>
-<body>
-  <div class="box">
-    <p id="redirect-text">⏳ Авторизуємо… Якщо нічого не відбувається, <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbz7cM5gdV5dUp1oh1rMLPPiE3bNyMYMlt3ERhG1gFRqPS6fm4ptRD1yocJhw1KYrAI3/exec">натисніть тут</a>.</p>
-  </div>
 </body>
 </html>
