@@ -158,37 +158,45 @@
       if (email.endsWith('@sirko.club')) {
         document.getElementById('expenseForm').style.display = 'block';
         document.querySelector('.g_id_signin').style.display = 'none';
+        document.getElementById('unauthorized').style.display = 'none';
       } else {
+        document.getElementById('expenseForm').style.display = 'none';
+        document.querySelector('.g_id_signin').style.display = 'none';
         document.getElementById('unauthorized').textContent =
           '⛔ Доступ дозволено лише для користувачів @sirko.club';
+        document.getElementById('unauthorized').style.display = 'block';
       }
     }
 
-    document.getElementById('expenseForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {
-        info: form.info.value,
-        category: form.category.value,
-        payer: form.payer.value,
-        amount: form.amount.value,
-        date: form.date.value,
-        notes: form.notes.value
-      };
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById('expenseForm');
 
-      fetch('https://script.google.com/macros/s/AKfycbyXr__EZOUK3LGBlSjSSml5pHjsz5bChhiDmYOLhivCcdTSQIsounJgfIm6k6qUQw3k/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(() => {
-        showToast("✅ Дані успішно надіслані!");
-        form.reset();
-      })
-      .catch(() => {
-        showToast("⚠️ Помилка! Але, можливо, дані збережено.");
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = {
+          info: form.info.value,
+          category: form.category.value,
+          payer: form.payer.value,
+          amount: form.amount.value,
+          date: form.date.value,
+          notes: form.notes.value
+        };
+
+        fetch('https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbyXr__EZOUK3LGBlSjSSml5pHjsz5bChhiDmYOLhivCcdTSQIsounJgfIm6k6qUQw3k/exec/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then(res => {
+            if (!res.ok) throw new Error("Network error");
+            showToast("✅ Дані успішно надіслані!");
+            form.reset();
+          })
+          .catch(() => {
+            showToast("⚠️ Помилка! Але можливо, дані збережено.");
+          });
       });
     });
   </script>
