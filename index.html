@@ -16,7 +16,8 @@
 </head>
 <body>
   <div class="container">
-    <!-- Сліди лапок -->
+
+    <!-- Анімовані сліди лапок -->
     <div class="paw-container">
       <span class="paw-print" style="--d:1s;   --x:5%;  --y:25%; --r:-15deg; --tx:20px;  --ty:-10px;"></span>
       <span class="paw-print" style="--d:3.5s; --x:30%; --y:15%; --r:10deg;  --tx:-25px; --ty:15px;"></span>
@@ -26,7 +27,7 @@
       <span class="paw-print" style="--d:13s;  --x:85%; --y:75%; --r:5deg;   --tx:-20px; --ty:20px;"></span>
     </div>
 
-    <!-- CTA зона -->
+    <!-- CTA зона зверху -->
     <section class="cta-top reveal delay-1">
       <button id="go-expenses" class="btn ripple pulse">Форма витрат</button>
       <button id="go-map"      class="btn ripple">Карта клієнта</button>
@@ -34,13 +35,13 @@
       <button id="go-reports"  class="btn ripple">Звіти</button>
     </section>
 
-    <!-- Hero із чистим <img> -->
+    <!-- Hero із новим скетч-лого -->
     <header class="hero reveal delay-2">
       <div class="hero__logo">
         <img
-          src="/images/logo.svg"
+          src="/images/logo-sketch.png"
           alt="Sirko Club Logo"
-          onerror="this.onerror=null; this.src='/images/logo.png'">
+          class="logo-sketch">
       </div>
       <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
       <p class="hero__text">
@@ -48,7 +49,7 @@
       </p>
     </header>
 
-    <!-- Фічі адмінки -->
+    <!-- Розділ фіч -->
     <section id="map" class="admin-features reveal delay-3">
       <div class="feature">
         <img src="/images/map-icon.png" alt="Карта клієнта"/>
@@ -71,6 +72,7 @@
         <p>Генерація фінансових та операційних звітів.</p>
       </div>
     </section>
+
   </div>
 
   <script src="js/main.js"></script>

@@ -1,18 +1,15 @@
 /* css/components/hero.css */
 
-/* Анімований градієнт */
+/* Анімований градієнт для Hero */
 @keyframes gradientShift {
-  0%   { background-position:   0% 50%; }
+  0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
-  100% { background-position:   0% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 header.hero {
   padding: clamp(2rem, 5vw, 4rem) 1rem;
-  background: linear-gradient(-45deg,
-    var(--primary),
-    var(--primary-light)
-  );
+  background: linear-gradient(-45deg, var(--primary), var(--primary-light));
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 
@@ -22,14 +19,14 @@ header.hero {
   overflow: hidden;
 }
 
-/* Логотип */
-.hero__logo img {
-  width: clamp(100px, 20vw, 150px);
+/* Новий скетч-лого */
+.hero__logo img.logo-sketch {
+  width: clamp(120px, 25vw, 180px);
   margin: 0 auto 1.5rem;
   display: block;
 }
 
-/* Основний заголовок — шрифт близький до лого, акцентний колір */
+/* Основний заголовок в стилі лого */
 .hero__title {
   font-family: var(--font-sans);
   font-weight: 700;
@@ -41,7 +38,7 @@ header.hero {
   line-height: 1.2;
 }
 
-/* Підзаголовок — більш спокійний тон, невелика капіталізація */
+/* Підзаголовок */
 .hero__text {
   font-family: var(--font-sans);
   font-weight: 400;
