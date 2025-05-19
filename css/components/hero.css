@@ -1,5 +1,6 @@
-/* Hero у стилі лого: темний градієнт та адаптивна типографіка */
+/* css/components/hero.css */
 
+/* Плавний анімований градієнт та адаптивна типографіка */
 @keyframes gradientShift {
   0%   { background-position:   0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -8,8 +9,7 @@
 
 header.hero {
   padding: clamp(2rem, 5vw, 4rem) 1rem;
-  background: linear-gradient(
-    -45deg,
+  background: linear-gradient(-45deg,
     var(--primary),
     var(--primary-light)
   );
@@ -23,21 +23,24 @@ header.hero {
   overflow:      hidden;
 }
 
+/* Збільшуємо логотип */
 .hero__logo img {
-  width: clamp(80px, 15vw, 120px);
+  width: clamp(100px, 20vw, 150px);
   margin: 0 auto 1.5rem;
   display: block;
 }
 
+/* Трохи зменшуємо заголовок */
 .hero__title {
   font-family: var(--font-serif);
-  font-size:   clamp(2rem, 6vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
+/* Трохи зменшуємо підзаголовок */
 .hero__text {
-  font-size:   clamp(1rem, 4vw, 1.125rem);
-  max-width:   600px;
-  margin:      0 auto;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
+  max-width: 600px;
+  margin: 0 auto;
 }
