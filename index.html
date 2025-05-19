@@ -9,58 +9,52 @@
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/layout.css"/>
   <link rel="stylesheet" href="css/components/hero.css"/>
-  <link rel="stylesheet" href="css/components/features.css"/>
   <link rel="stylesheet" href="css/components/buttons.css"/>
+  <link rel="stylesheet" href="css/components/features.css"/>
   <link rel="stylesheet" href="css/components/animations.css"/>
 </head>
 <body>
   <div class="container">
-    <!-- Головний блок -->
-    <header class="hero reveal">
-      <div class="hero__inner">
-        <div>
-          <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
-          <p class="hero__text">Усі інструменти для персоналу та адміністраторів.</p>
-          <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbz9O5IY0xVVulaJTJEw8WN7sD3ywXPro-wwhj9cHq395Ssjr580D_TbFJ3qHywswz87/exec" target="_blank" class="btn reveal delay-1">Форма витрат</a>
-        </div>
-        <!-- Замість фото: ілюстрація лінійним стилем -->
-        <img src="images/hero-illustration.svg"
-             alt="Ілюстрація собаки"
-             class="hero__image reveal delay-2"/>
+    <!-- CTA зона зверху -->
+    <section class="cta-top reveal delay-1">
+      <button id="go-expenses" class="btn ripple pulse">Форма витрат</button>
+      <button id="go-map"      class="btn ripple">Карта клієнта</button>
+      <button id="go-staff"    class="btn ripple">Персонал</button>
+      <button id="go-reports"  class="btn ripple">Звіти</button>
+    </section>
+
+    <!-- Hero із логотипом та оновленою анімацією -->
+    <header class="hero reveal delay-2">
+      <div class="hero__logo">
+        <img src="images/logo.png" alt="Sirko Club Logo"/>
       </div>
+      <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
+      <p class="hero__text">Усі інструменти для персоналу та адміністраторів в одному місці.</p>
     </header>
 
-    <!-- Функції адмінки -->
-    <section class="admin-features">
-      <div class="feature reveal delay-1">
+    <!-- Розділ фіч -->
+    <section id="map" class="admin-features reveal delay-3">
+      <div class="feature">
         <img src="images/map-icon.png" alt="Карта клієнта"/>
         <h3>Карта клієнта</h3>
         <p>Перегляд локацій та історії витрат по клієнтах.</p>
       </div>
-      <div class="feature reveal delay-2">
+      <div id="expenses" class="feature">
         <img src="images/expense-icon.png" alt="Форма витрат"/>
         <h3>Форма витрат</h3>
         <p>Швидке введення та редагування витрат клубу.</p>
       </div>
-      <div class="feature reveal delay-3">
+      <div id="staff" class="feature">
         <img src="images/users-icon.png" alt="Управління персоналом"/>
         <h3>Персонал</h3>
         <p>Додати, редагувати або видаляти співробітників.</p>
       </div>
-      <div class="feature reveal delay-4">
+      <div id="reports" class="feature">
         <img src="images/reports-icon.png" alt="Звіти"/>
         <h3>Звіти</h3>
         <p>Генерація фінансових та операційних звітів.</p>
       </div>
     </section>
-
-    <!-- Нижній CTA -->
-    <footer class="cta">
-      <a id="go-expenses" href="https://script.google.com/a/macros/sirko.club/s/AKfycbz9O5IY0xVVulaJTJEw8WN7sD3ywXPro-wwhj9cHq395Ssjr580D_TbFJ3qHywswz87/exec" target="_blank" class="btn reveal delay-1">Форма витрат</a>
-      <button id="go-map"      class="btn reveal delay-2">Карта клієнта</button>
-      <button id="go-staff"    class="btn reveal delay-3">Персонал</button>
-      <button id="go-reports"  class="btn reveal delay-4">Звіти</button>
-    </footer>
   </div>
 
   <script src="js/main.js"></script>
