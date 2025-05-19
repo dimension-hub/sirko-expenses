@@ -1,4 +1,4 @@
-/* Анімація слідів лапок */
+/* Анімація слідів лапок у стилі Sirko Logo */
 
 .paw-container {
   position: absolute;
@@ -15,15 +15,15 @@
   left: var(--x);
   width: 40px;
   height: 40px;
-  background: url('../images/paw-print.png') no-repeat center/contain;
+  background: url('../images/paw-print.svg') no-repeat center/contain;
   opacity: 0;
   transform: scale(0.5) rotate(var(--r, 0deg));
   animation: pawAnim 6s var(--d, 0s) ease-in-out infinite;
 }
 
 @keyframes pawAnim {
-  0%   { opacity: 0; transform: scale(0.5) rotate(var(--r,0deg)); }
-  10%  { opacity: 0.6; transform: scale(1)   rotate(var(--r,0deg)); }
+  0%   { opacity: 0;    transform: scale(0.5) rotate(var(--r,0deg)); }
+  10%  { opacity: 0.6;  transform: scale(1)   rotate(var(--r,0deg)); }
   80%  { opacity: 0.6; }
-  100% { opacity: 0; transform: scale(1.2) translate(var(--tx, 20px), var(--ty, -20px)) rotate(var(--r,0deg)); }
+  100% { opacity: 0;    transform: scale(1.2) translate(var(--tx, 0), var(--ty, 0)) rotate(var(--r,0deg)); }
 }

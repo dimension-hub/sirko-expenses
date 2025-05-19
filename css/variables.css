@@ -1,14 +1,18 @@
 :root {
-  /* Пастельна палітра */
-  --accent: #A6DCEF;
-  --accent-light: #CDEDF2;
-  --card-bg: #F5F7FA;
-  --bg: #F0F4F8;
-  --text-color: #3E4A59;
-  --text-muted: #6E798C;
-  --radius: 8px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.1);
-  --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
-  --font-sans: 'Inter', sans-serif;
+  /* Логотип-орієнтована палітра */
+  --primary:    #0A2745;   /* фон лого */
+  --primary-light: #0C385D; /* світліший синій для градієнтів */
+  --accent:     #F6662A;   /* помаранчевий силует */
+  --accent-light: #FF8C4C; /* світліший помаранчевий */
+  --bg:         var(--primary);
+  --card-bg:    #102F56;   /* трохи світліше за фон для карток */
+  --text-color: #FFFFFF;
+  --text-muted: rgba(255,255,255,0.8);
+
+  --radius:     8px;
+  --shadow:     0 2px 8px rgba(0,0,0,0.3);
+  --shadow-lg:  0 4px 16px rgba(0,0,0,0.4);
+
+  --font-sans:  'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }
