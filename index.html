@@ -9,28 +9,29 @@
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/layout.css"/>
   <link rel="stylesheet" href="css/components/hero.css"/>
+  <link rel="stylesheet" href="css/components/form.css"/>
   <link rel="stylesheet" href="css/components/features.css"/>
   <link rel="stylesheet" href="css/components/buttons.css"/>
   <link rel="stylesheet" href="css/components/animations.css"/>
 </head>
 <body>
   <div class="container">
+    <!-- Головний блок -->
     <header class="hero reveal">
       <div class="hero__inner">
         <div>
           <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
-          <p class="hero__text">Всі інструменти для персоналу та адміністраторів</p>
-          <div class="dog-tiles">
-            <img src="images/dog1.jpg" alt="Кавалер-спанієль" class="dog-img reveal delay-1" />
-            <img src="images/dog2.jpg" alt="Далматинець" class="dog-img reveal delay-2" />
-            <img src="images/dog3.jpg" alt="Золотистий ретривер" class="dog-img reveal delay-3" />
-            <img src="images/dog4.jpg" alt="Лабрадор" class="dog-img reveal delay-4" />
-          </div>
+          <p class="hero__text">Усі інструменти для персоналу та адміністраторів.</p>
+          <button class="btn reveal delay-1">Форма витрат</button>
         </div>
-        <img src="images/hero-dog.png" alt="Головний ретривер" class="hero__image reveal delay-2" />
+        <!-- Замість фото: ілюстрація лінійним стилем -->
+        <img src="images/hero-illustration.svg"
+             alt="Ілюстрація собаки"
+             class="hero__image reveal delay-2"/>
       </div>
     </header>
 
+    <!-- Функції адмінки -->
     <section class="admin-features">
       <div class="feature reveal delay-1">
         <img src="images/map-icon.png" alt="Карта клієнта"/>
@@ -54,11 +55,34 @@
       </div>
     </section>
 
-    <footer class="cta reveal delay-4">
-      <button id="go-expenses" class="btn">Форма витрат</button>
-      <button id="go-map"      class="btn">Карта клієнта</button>
-      <button id="go-staff"    class="btn">Персонал</button>
-      <button id="go-reports"  class="btn">Звіти</button>
+    <!-- Секція: Форма витрат -->
+    <section class="expense-section reveal delay-1">
+      <div class="container">
+        <h2>Форма витрат</h2>
+        <div class="expense-form">
+          <input id="expense-info"      type="text"     placeholder="Опис витрати" />
+          <select id="expense-category">
+            <option value="" disabled selected>Категорія</option>
+            <option>Транспорт</option>
+            <option>Оренда</option>
+            <option>Матеріали</option>
+            <option>Інше</option>
+          </select>
+          <input id="expense-payer"     type="text"     placeholder="Платник" />
+          <input id="expense-amount"    type="number"   placeholder="Сума, ₴" />
+          <input id="expense-date"      type="date" />
+          <textarea id="expense-notes"  placeholder="Примітки (необов’язково)"></textarea>
+          <button id="expense-submit" class="btn">Надіслати витрати</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Нижній CTA -->
+    <footer class="cta">
+      <button id="go-expenses" class="btn reveal delay-1">Форма витрат</button>
+      <button id="go-map"      class="btn reveal delay-2">Карта клієнта</button>
+      <button id="go-staff"    class="btn reveal delay-3">Персонал</button>
+      <button id="go-reports"  class="btn reveal delay-4">Звіти</button>
     </footer>
   </div>
 

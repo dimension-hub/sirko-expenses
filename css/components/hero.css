@@ -1,16 +1,55 @@
-.dog-tiles {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+header.hero {
+  position: relative;
+  padding: 4rem 0;
+  background: var(--bg);
+  overflow: hidden;
 }
-.dog-img {
-  flex: 1;
-  border-radius: var(--radius);
-  object-fit: cover;
-  height: 180px;
+/* легкий патерн лапок згідно з вашим стилем */
+header.hero::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 120px;
+  height: 120px;
+  background: url('../images/paw-pattern.svg') no-repeat center/contain;
+  opacity: 0.1;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+/* тексти з адаптивним розміром */
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--primary);
+  line-height: 1.2;
+}
+.hero__text {
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* ілюстрація замість фото */
+.hero__image {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
   box-shadow: var(--shadow);
-  transition: transform 0.3s;
+  border-radius: var(--radius);
 }
-.dog-img:hover {
-  transform: translateY(-5px);
+
+/* мобіль */
+@media (max-width: var(--break-sm)) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
 }
