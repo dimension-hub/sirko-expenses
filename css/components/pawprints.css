@@ -1,9 +1,9 @@
-/* Анімація слідів лапок у новій палітрі */
-
 .paw-container {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   overflow: hidden;
   z-index: 1;
@@ -15,15 +15,15 @@
   left: var(--x);
   width: 40px;
   height: 40px;
-  background: url('../images/paw-print.svg') no-repeat center/contain;
+  background: url('/images/paw-print.svg') no-repeat center/contain;
   opacity: 0;
   transform: scale(0.5) rotate(var(--r, 0deg));
   animation: pawAnim 6s var(--d, 0s) ease-in-out infinite;
 }
 
 @keyframes pawAnim {
-  0%   { opacity: 0;    transform: scale(0.5) rotate(var(--r,0deg)); }
-  10%  { opacity: 0.6;  transform: scale(1)   rotate(var(--r,0deg)); }
-  80%  { opacity: 0.6; }
-  100% { opacity: 0;    transform: scale(1.2) translate(var(--tx, 0), var(--ty, 0)) rotate(var(--r,0deg)); }
+  0%   { opacity: 0;    transform: scale(0.5) rotate(var(--r, 0deg)); }
+  10%  { opacity: 0.6;  transform: scale(1)   rotate(var(--r, 0deg)); }
+  80%  { opacity: 0.6;                                     }
+  100% { opacity: 0;    transform: scale(1.2) translate(var(--tx, 0), var(--ty, 0)) rotate(var(--r, 0deg)); }
 }

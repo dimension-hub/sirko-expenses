@@ -18,12 +18,12 @@
   <div class="container">
     <!-- Анімовані сліди лапок -->
     <div class="paw-container">
-      <span class="paw-print" style="--d:1s;  --x:5%;  --y:25%; --r:-15deg; --tx:20px; --ty:-10px;"></span>
-      <span class="paw-print" style="--d:3.5s;--x:30%; --y:15%; --r:10deg;  --tx:-25px;--ty:15px;"></span>
-      <span class="paw-print" style="--d:6s;  --x:55%; --y:40%; --r:-5deg;  --tx:30px; --ty:-20px;"></span>
-      <span class="paw-print" style="--d:8.2s;--x:75%; --y:30%; --r:20deg; --tx:-15px;--ty:10px;"></span>
-      <span class="paw-print" style="--d:10.5s;--x:20%; --y:60%; --r:-10deg; --tx:15px; --ty:-15px;"></span>
-      <span class="paw-print" style="--d:13s; --x:85%; --y:75%; --r:5deg;   --tx:-20px;--ty:20px;"></span>
+      <span class="paw-print" style="--d:1s;   --x:5%;  --y:25%; --r:-15deg; --tx:20px;  --ty:-10px;"></span>
+      <span class="paw-print" style="--d:3.5s; --x:30%; --y:15%; --r:10deg;  --tx:-25px; --ty:15px;"></span>
+      <span class="paw-print" style="--d:6s;   --x:55%; --y:40%; --r:-5deg;  --tx:30px;  --ty:-20px;"></span>
+      <span class="paw-print" style="--d:8.2s; --x:75%; --y:30%; --r:20deg;  --tx:-15px; --ty:10px;"></span>
+      <span class="paw-print" style="--d:10.5s;--x:20%; --y:60%; --r:-10deg; --tx:15px;  --ty:-15px;"></span>
+      <span class="paw-print" style="--d:13s;  --x:85%; --y:75%; --r:5deg;   --tx:-20px; --ty:20px;"></span>
     </div>
 
     <!-- CTA зона зверху -->
@@ -34,34 +34,45 @@
       <button id="go-reports"  class="btn ripple">Звіти</button>
     </section>
 
-    <!-- Hero із новим логотипом -->
+    <!-- Hero із SVG-лого і PNG-fallback -->
     <header class="hero reveal delay-2">
       <div class="hero__logo">
-        <img src="images/logo.svg" alt="Sirko Club Logo"/>
+        <object
+          data="/images/logo.svg"
+          type="image/svg+xml"
+          class="logo-svg"
+          onerror="this.style.display='none'">
+        </object>
+        <img
+          src="/images/logo.png"
+          alt="Sirko Club Logo"
+          onerror="this.src='/images/logo-fallback.png'">
       </div>
       <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
-      <p class="hero__text">Усі інструменти для персоналу та адміністраторів в одному місці.</p>
+      <p class="hero__text">
+        Усі інструменти для персоналу та адміністраторів в одному місці.
+      </p>
     </header>
 
     <!-- Розділ фіч -->
     <section id="map" class="admin-features reveal delay-3">
       <div class="feature">
-        <img src="images/map-icon.png" alt="Карта клієнта"/>
+        <img src="/images/map-icon.png" alt="Карта клієнта"/>
         <h3>Карта клієнта</h3>
         <p>Перегляд локацій та історії витрат по клієнтах.</p>
       </div>
       <div id="expenses" class="feature">
-        <img src="images/expense-icon.png" alt="Форма витрат"/>
+        <img src="/images/expense-icon.png" alt="Форма витрат"/>
         <h3>Форма витрат</h3>
         <p>Швидке введення та редагування витрат клубу.</p>
       </div>
       <div id="staff" class="feature">
-        <img src="images/users-icon.png" alt="Управління персоналом"/>
+        <img src="/images/users-icon.png" alt="Управління персоналом"/>
         <h3>Персонал</h3>
         <p>Додати, редагувати або видаляти співробітників.</p>
       </div>
       <div id="reports" class="feature">
-        <img src="images/reports-icon.png" alt="Звіти"/>
+        <img src="/images/reports-icon.png" alt="Звіти"/>
         <h3>Звіти</h3>
         <p>Генерація фінансових та операційних звітів.</p>
       </div>
