@@ -1,17 +1,17 @@
 :root {
-  /* Логотип-орієнтована палітра */
-  --primary:    #0A2745;   /* фон лого */
-  --primary-light: #0C385D; /* світліший синій для градієнтів */
-  --accent:     #F6662A;   /* помаранчевий силует */
-  --accent-light: #FF8C4C; /* світліший помаранчевий */
-  --bg:         var(--primary);
-  --card-bg:    #102F56;   /* трохи світліше за фон для карток */
-  --text-color: #FFFFFF;
-  --text-muted: rgba(255,255,255,0.8);
+  /* Тепла пастельна палітра */
+  --primary:       #EADBC8; /* фон сторінки */
+  --primary-light: #F5E8DE; /* світліший фон для карток */
+  --accent:        #BFA18E; /* основний акцент (кнопки, лапки) */
+  --accent-light:  #D1B8A1; /* hover-варіант акценту */
+  --bg:            var(--primary);
+  --card-bg:       var(--primary-light);
+  --text-color:    #3C2F2F; /* темний шоколадний */
+  --text-muted:    #6E5D5B; /* приглушений коричневий */
 
-  --radius:     8px;
-  --shadow:     0 2px 8px rgba(0,0,0,0.3);
-  --shadow-lg:  0 4px 16px rgba(0,0,0,0.4);
+  --radius:    8px;
+  --shadow:    0 2px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
 
   --font-sans:  'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
