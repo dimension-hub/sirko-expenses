@@ -2,38 +2,41 @@
 
 /* Анімований градієнт для Hero */
 @keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
+  0%   { background-position:   0% 50%; }
   50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  100% { background-position:   0% 50%; }
 }
 
+/* Hero як двоколонка: текст — логотип */
 header.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+  gap: 2rem;
+
   padding: clamp(2rem, 5vw, 4rem) 1rem;
   background: linear-gradient(-45deg, var(--primary), var(--primary-light));
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 
-  text-align: center;
   border-radius: var(--radius);
   margin-bottom: 2rem;
   overflow: hidden;
 }
 
-/* Новий скетч-лого */
-.hero__logo img.logo-sketch {
-  width: clamp(120px, 25vw, 180px);
-  margin: 0 auto 1.5rem;
-  display: block;
+/* Текстова колонка */
+.hero__content {
+  text-align: left;
 }
 
-/* Основний заголовок в стилі лого */
+/* Заголовок */
 .hero__title {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--accent);
+  color: var(--text-color);
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -44,7 +47,29 @@ header.hero {
   font-weight: 400;
   font-size: clamp(0.875rem, 3.5vw, 1rem);
   color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 500px;
+  margin: 0;
   letter-spacing: 0.02em;
+}
+
+/* Колонка з лого */
+.hero__image {
+  text-align: center;
+}
+
+/* Логотип-скетч */
+.hero__image img.logo-sketch {
+  width: clamp(140px, 30vw, 280px);
+  display: inline-block;
+}
+
+/* Мобільна адаптація */
+@media (max-width: 768px) {
+  header.hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero__content {
+    text-align: center;
+  }
 }
