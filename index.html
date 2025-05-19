@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sirko Club — Адмін панель</title>
-  <link rel="icon" href="logo.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/variables.css"/>
+  <link rel="stylesheet" href="css/reset.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/layout.css"/>
+  <link rel="stylesheet" href="css/components/hero.css"/>
+  <link rel="stylesheet" href="css/components/features.css"/>
+  <link rel="stylesheet" href="css/components/buttons.css"/>
+  <link rel="stylesheet" href="css/components/animations.css"/>
 </head>
 <body>
+  <div class="container">
+    <header class="hero reveal">
+      <div class="hero__inner">
+        <div>
+          <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
+          <p class="hero__text">Всі інструменти для персоналу та адміністраторів</p>
+          <div class="dog-tiles">
+            <img src="images/dog1.jpg" alt="Кавалер-спанієль" class="dog-img reveal delay-1" />
+            <img src="images/dog2.jpg" alt="Далматинець" class="dog-img reveal delay-2" />
+            <img src="images/dog3.jpg" alt="Золотистий ретривер" class="dog-img reveal delay-3" />
+            <img src="images/dog4.jpg" alt="Лабрадор" class="dog-img reveal delay-4" />
+          </div>
+        </div>
+        <img src="images/hero-dog.png" alt="Головний ретривер" class="hero__image reveal delay-2" />
+      </div>
+    </header>
 
-  <!-- HERO: собаки -->
-  <header class="hero">
-    <h1>Sirko Club — Собачий адмін</h1>
-    <p>Всі інструменти для персоналу та адміністраторів</p>
-    <div class="dog-tiles">
-      <img src="images/dog1.jpg" alt="Кавалер-спанієль" class="dog-img reveal delay-1" />
-      <img src="images/dog2.jpg" alt="Далматинець" class="dog-img reveal delay-2" />
-      <img src="images/dog3.jpg" alt="Золотистий ретривер" class="dog-img reveal delay-3" />
-      <img src="images/dog4.jpg" alt="Лабрадор" class="dog-img reveal delay-4" />
-    </div>
-  </header>
+    <section class="admin-features">
+      <div class="feature reveal delay-1">
+        <img src="images/map-icon.png" alt="Карта клієнта"/>
+        <h3>Карта клієнта</h3>
+        <p>Перегляд локацій та історії витрат по клієнтах.</p>
+      </div>
+      <div class="feature reveal delay-2">
+        <img src="images/expense-icon.png" alt="Форма витрат"/>
+        <h3>Форма витрат</h3>
+        <p>Швидке введення та редагування витрат клубу.</p>
+      </div>
+      <div class="feature reveal delay-3">
+        <img src="images/users-icon.png" alt="Управління персоналом"/>
+        <h3>Персонал</h3>
+        <p>Додати, редагувати або видаляти співробітників.</p>
+      </div>
+      <div class="feature reveal delay-4">
+        <img src="images/reports-icon.png" alt="Звіти"/>
+        <h3>Звіти</h3>
+        <p>Генерація фінансових та операційних звітів.</p>
+      </div>
+    </section>
 
-  <!-- ADMIN FEATURES -->
-  <section class="admin-features">
-    <div class="feature reveal">
-      <img src="images/map-icon.png" alt="Карта клієнта" />
-      <h3>Карта клієнта</h3>
-      <p>Перегляд локацій та історії витрат по клієнтах.</p>
-    </div>
-    <div class="feature reveal delay-1">
-      <img src="images/expense-icon.png" alt="Форма витрат" />
-      <h3>Форма витрат</h3>
-      <p>Швидке введення та редагування витрат клубу.</p>
-    </div>
-    <div class="feature reveal delay-2">
-      <img src="images/users-icon.png" alt="Управління персоналом" />
-      <h3>Персонал</h3>
-      <p>Додати, редагувати або видаляти співробітників.</p>
-    </div>
-    <div class="feature reveal delay-3">
-      <img src="images/reports-icon.png" alt="Звіти" />
-      <h3>Звіти</h3>
-      <p>Генерація фінансових та операційних звітів.</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <footer class="cta reveal delay-4">
-    <button id="go-expenses" class="btn ripple">Форма витрат</button>
-    <button id="go-map"      class="btn ripple">Карта клієнта</button>
-    <button id="go-staff"    class="btn ripple">Персонал</button>
-    <button id="go-reports"  class="btn ripple">Звіти</button>
-  </footer>
+    <footer class="cta reveal delay-4">
+      <button id="go-expenses" class="btn">Форма витрат</button>
+      <button id="go-map"      class="btn">Карта клієнта</button>
+      <button id="go-staff"    class="btn">Персонал</button>
+      <button id="go-reports"  class="btn">Звіти</button>
+    </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

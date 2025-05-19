@@ -1,0 +1,11 @@
+:root {
+  --bg: #fefbf6;
+  --primary: #0f243d;
+  --accent: #ff7126;
+  --accent-light: #ff9c50;
+  --muted: #666666;
+  --radius: 8px;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
