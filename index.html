@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/layout.css"/>
   <link rel="stylesheet" href="css/components/hero.css"/>
-  <link rel="stylesheet" href="css/components/form.css"/>
   <link rel="stylesheet" href="css/components/features.css"/>
   <link rel="stylesheet" href="css/components/buttons.css"/>
   <link rel="stylesheet" href="css/components/animations.css"/>
@@ -22,7 +21,7 @@
         <div>
           <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
           <p class="hero__text">Усі інструменти для персоналу та адміністраторів.</p>
-          <button class="btn reveal delay-1">Форма витрат</button>
+          <a href="https://script.google.com/a/macros/sirko.club/s/AKfycbz9O5IY0xVVulaJTJEw8WN7sD3ywXPro-wwhj9cHq395Ssjr580D_TbFJ3qHywswz87/exec" target="_blank" class="btn reveal delay-1">Форма витрат</a>
         </div>
         <!-- Замість фото: ілюстрація лінійним стилем -->
         <img src="images/hero-illustration.svg"
@@ -55,31 +54,9 @@
       </div>
     </section>
 
-    <!-- Секція: Форма витрат -->
-    <section class="expense-section reveal delay-1">
-      <div class="container">
-        <h2>Форма витрат</h2>
-        <div class="expense-form">
-          <input id="expense-info"      type="text"     placeholder="Опис витрати" />
-          <select id="expense-category">
-            <option value="" disabled selected>Категорія</option>
-            <option>Транспорт</option>
-            <option>Оренда</option>
-            <option>Матеріали</option>
-            <option>Інше</option>
-          </select>
-          <input id="expense-payer"     type="text"     placeholder="Платник" />
-          <input id="expense-amount"    type="number"   placeholder="Сума, ₴" />
-          <input id="expense-date"      type="date" />
-          <textarea id="expense-notes"  placeholder="Примітки (необов’язково)"></textarea>
-          <button id="expense-submit" class="btn">Надіслати витрати</button>
-        </div>
-      </div>
-    </section>
-
     <!-- Нижній CTA -->
     <footer class="cta">
-      <button id="go-expenses" class="btn reveal delay-1">Форма витрат</button>
+      <a id="go-expenses" href="https://script.google.com/a/macros/sirko.club/s/AKfycbz9O5IY0xVVulaJTJEw8WN7sD3ywXPro-wwhj9cHq395Ssjr580D_TbFJ3qHywswz87/exec" target="_blank" class="btn reveal delay-1">Форма витрат</a>
       <button id="go-map"      class="btn reveal delay-2">Карта клієнта</button>
       <button id="go-staff"    class="btn reveal delay-3">Персонал</button>
       <button id="go-reports"  class="btn reveal delay-4">Звіти</button>
