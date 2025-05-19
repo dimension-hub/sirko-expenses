@@ -2,159 +2,57 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <meta name="robots" content="noindex" />
-  <title>Sirko Club — Облік витрат</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sirko Club — Адмін панель</title>
   <link rel="icon" href="logo.png" />
-  <style>
-    /* Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; width: 100%; overflow: hidden; }
-
-    :root {
-      --bg-dark: #0f243d;
-      --bg-lite: #fefbf6;
-      --accent: #ff7126;
-      --accent-dark: #d85e1e;
-      --text-light: #fefbf6;
-      --text-dark: #222222;
-      --radius: 12px;
-      --shadow: 0 4px 16px rgba(0,0,0,0.2);
-      --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      --paw-count: 8;
-      --print-size-min: 2rem;
-      --print-size-max: 4rem;
-      --print-duration: 4s;
-      --transition-duration: 0.6s;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg-dark);
-      color: var(--text-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      touch-action: none;
-    }
-
-    /* Paw print effect */
-    .paw-print {
-      position: absolute;
-      pointer-events: none;
-      user-select: none;
-      color: var(--accent);
-      opacity: 0;
-      animation: print-appear var(--print-duration) ease forwards;
-    }
-
-    @keyframes print-appear {
-      0% { opacity: 0; transform: scale(0.5); }
-      10% { opacity: 0.6; transform: scale(1); }
-      70% { opacity: 0.6; }
-      100% { opacity: 0; transform: scale(0.5); }
-    }
-
-    .container {
-      z-index: 1;
-      background: var(--bg-lite);
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      text-align: center;
-      max-width: 360px;
-      width: 90%;
-      transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease;
-    }
-
-    .logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1rem;
-      animation: popIn 0.8s ease-out both;
-    }
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-    p {
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-light);
-      background: linear-gradient(45deg, var(--accent), var(--accent-dark));
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: linear-gradient(45deg, var(--accent-dark), var(--accent));
-    }
-
-    @media (max-width: 400px) {
-      :root { --paw-count: 5; }
-      .container { padding: 2rem; }
-      h1 { font-size: 1.25rem; }
-      .btn { width: 100%; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="container" id="container">
-    <img src="logo.png" alt="Sirko Logo" class="logo" />
-    <h1>Ласкаво просимо в Sirko Club</h1>
-    <p>Натисніть кнопку нижче, щоб перейти до обліку витрат.</p>
-    <a href="#" id="go-button" class="btn">
-      Перейти до форми
-    </a>
-  </div>
-  <script>
-    const body = document.body;
-    const container = document.getElementById('container');
-    const button = document.getElementById('go-button');
-    const TARGET_URL = 'https://script.google.com/a/macros/sirko.club/s/AKfycbz9O5IY0xVVulaJTJEw8WN7sD3ywXPro-wwhj9cHq395Ssjr580D_TbFJ3qHywswz87/exec';
 
-    // Helper
-    function random(min, max) { return Math.random() * (max - min) + min; }
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="reveal">Sirko Club — Собачий адмін</h1>
+    <p class="reveal delay-1">Всі інструменти для персоналу та адміністраторів</p>
+    <div class="dog-tiles reveal delay-2">
+      <div class="dog-card">🐕‍🦺</div>
+      <div class="dog-card">🐩</div>
+      <div class="dog-card">🐕</div>
+      <div class="dog-card">🐶</div>
+    </div>
+  </header>
 
-    // Generate paw prints across screen
-    const pawCount = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--paw-count'));
-    for (let i = 0; i < pawCount; i++) {
-      const span = document.createElement('span');
-      span.className = 'paw-print';
-      span.textContent = '🐾';
-      span.style.left = random(5, 95) + 'vw';
-      span.style.top = random(5, 95) + 'vh';
-      const size = random(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-size-min')), parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--print-size-max')));
-      span.style.fontSize = size + 'rem';
-      const duration = random(3, 6);
-      span.style.animationDuration = duration + 's';
-      setTimeout(() => { body.appendChild(span); }, random(0, 3000));
-    }
+  <!-- ADMIN FEATURES -->
+  <section class="admin-features">
+    <div class="feature reveal">
+      <img src="images/map-icon.png" alt="Карта клієнта" />
+      <h3>Карта клієнта</h3>
+      <p>Перегляд локацій та історії витрат по клієнтах.</p>
+    </div>
+    <div class="feature reveal delay-1">
+      <img src="images/expense-icon.png" alt="Форма витрат" />
+      <h3>Форма витрат</h3>
+      <p>Швидке введення та редагування витрат клубу.</p>
+    </div>
+    <div class="feature reveal delay-2">
+      <img src="images/users-icon.png" alt="Управління персоналом" />
+      <h3>Управління персоналом</h3>
+      <p>Додати, редагувати або видаляти співробітників.</p>
+    </div>
+    <div class="feature reveal delay-3">
+      <img src="images/reports-icon.png" alt="Звіти" />
+      <h3>Звіти</h3>
+      <p>Генерація фінансових та операційних звітів.</p>
+    </div>
+  </section>
 
-    // Button click animation + redirect
-    button.addEventListener('click', e => {
-      e.preventDefault();
-      container.style.transform = 'scale(0.8)';
-      container.style.opacity = '0';
-      setTimeout(() => { window.location.href = TARGET_URL; }, 600);
-    });
-  </script>
+  <!-- CTA -->
+  <footer class="cta reveal delay-4">
+    <button id="go-expenses" class="btn ripple">Форма витрат</button>
+    <button id="go-map"      class="btn ripple">Карта клієнта</button>
+    <button id="go-staff"    class="btn ripple">Персонал</button>
+    <button id="go-reports"  class="btn ripple">Звіти</button>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
