@@ -1,13 +1,13 @@
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  color: var(--primary);
-  line-height: 1.2;
-}
-p {
-  color: var(--muted);
-  margin-bottom: 1rem;
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
 }
 .container {
-  width: min(90%, 1200px);
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
+  position: relative; /* для paw-container */
 }

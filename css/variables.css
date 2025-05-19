@@ -1,14 +1,14 @@
 :root {
-  --bg: #fefbf6;
-  --primary: #0f243d;
-  --accent: #ff7126;
-  --accent-light: #ff9c50;
-  --muted: #666666;
+  /* Пастельна палітра */
+  --accent: #A6DCEF;
+  --accent-light: #CDEDF2;
+  --card-bg: #F5F7FA;
+  --bg: #F0F4F8;
+  --text-color: #3E4A59;
+  --text-muted: #6E798C;
   --radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
-  --shadow: 0 8px 24px rgba(0,0,0,0.1);
-
-  /* брейкпоінт для мобільних */
-  --break-sm: 600px;
 }

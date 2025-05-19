@@ -12,9 +12,18 @@
   <link rel="stylesheet" href="css/components/buttons.css"/>
   <link rel="stylesheet" href="css/components/features.css"/>
   <link rel="stylesheet" href="css/components/animations.css"/>
+  <link rel="stylesheet" href="css/components/pawprints.css"/>
 </head>
 <body>
   <div class="container">
+    <!-- Анімовані сліди лапок -->
+    <div class="paw-container">
+      <span class="paw-print" style="--d:1s;  --x:10%; --y:20%; --r:10deg;  --tx:20px;  --ty:-10px;"></span>
+      <span class="paw-print" style="--d:4s;  --x:70%; --y:30%; --r:-10deg; --tx:-20px; --ty:20px;"></span>
+      <span class="paw-print" style="--d:7s;  --x:30%; --y:60%; --r:5deg;   --tx:15px;  --ty:-15px;"></span>
+      <span class="paw-print" style="--d:10s; --x:80%; --y:80%; --r:-5deg;  --tx:-15px; --ty:15px;"></span>
+    </div>
+
     <!-- CTA зона зверху -->
     <section class="cta-top reveal delay-1">
       <button id="go-expenses" class="btn ripple pulse">Форма витрат</button>
