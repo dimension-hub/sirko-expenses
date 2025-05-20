@@ -63,59 +63,27 @@ img { display:block; max-width:100%; }
 .nav-logo-img { width:40px; height:40px; margin-right:0.5rem; }
 .nav-logo-text { font-family:var(--font-serif); font-weight:700; color:var(--text-color); }
 .nav-items { display:flex; gap:0.5rem; }
-.nav-link {
-  display:block; padding:0.5rem 1rem;
-  font-family:var(--font-serif);
-  color:var(--text-color);
-  border-radius:var(--radius);
-  transition:background 0.3s,color 0.3s;
-}
+.nav-link { display:block; padding:0.5rem 1rem; font-family:var(--font-serif); color:var(--text-color); border-radius:var(--radius); transition:background 0.3s,color 0.3s; }
 .nav-link:hover { background:var(--accent-light); color:#fff; }
 @media(max-width:768px){ .desktop-nav{ display:none; } }
 
 /* ================ Mobile Burger & Nav ================ */
-.burger {
-  display:none; position:fixed; top:1rem; left:1rem;
-  width:2.5rem; height:2.5rem;
-  align-items:center; justify-content:center;
-  cursor:pointer; z-index:1002;
-}
+.burger { display:none; position:fixed; top:1rem; left:1rem; width:2.5rem; height:2.5rem; align-items:center; justify-content:center; cursor:pointer; z-index:1002; }
 @media(max-width:768px){ .burger{ display:flex; } }
-.burger span {
-  display:block; width:100%; height:3px;
-  background:var(--text-muted); border-radius:2px; margin:0.2rem 0;
-}
-.mobile-nav {
-  display:none; position:fixed; top:0; right:0;
-  width:75%; height:100vh;
-  padding:2.5rem 1.5rem; z-index:1001;
-}
+.burger span { display:block; width:100%; height:3px; background:var(--text-muted); border-radius:2px; margin:0.2rem 0; }
+.mobile-nav { display:none; position:fixed; top:0; right:0; width:75%; height:100vh; padding:2.5rem 1.5rem; z-index:1001; }
 .mobile-nav.open{ display:block; }
 .mobile-nav ul{ padding:0; }
 .mobile-nav li{ margin-bottom:1.5rem; list-style:none; }
 .mobile-nav li:last-of-type{ margin-bottom:0; }
-.mobile-nav a.nav-link {
-  display:block; padding:0.75rem 1rem;
-  font-family:var(--font-sans); color:var(--text-color);
-  border-radius:var(--radius); transition:background 0.3s,color 0.3s;
-}
+.mobile-nav a.nav-link { display:block; padding:0.75rem 1rem; font-family:var(--font-sans); color:var(--text-color); border-radius:var(--radius); transition:background 0.3s,color 0.3s; }
 .mobile-nav a.nav-link:hover{ background:var(--accent-light); color:#fff; }
 
 /* ================ Theme Toggle ================ */
-.dark-toggle {
-  position:fixed; top:1rem; right:1rem;
-  width:2.5rem; height:2.5rem;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; z-index:1002;
-}
+.dark-toggle { position:fixed; top:1rem; right:1rem; width:2.5rem; height:2.5rem; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:1002; }
 
 /* ================ Hero ================ */
-header.hero {
-  position:relative; z-index:1;
-  display:grid; grid-template-columns:auto 1fr;
-  align-items:center; gap:1.5rem;
-  padding:clamp(2rem,5vw,4rem) 1rem;
-}
+header.hero { position:relative; z-index:1; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:1.5rem; padding:clamp(2rem,5vw,4rem) 1rem; }
 .hero__image { overflow:visible; padding:0.5rem; }
 .logo-sketch { width:clamp(100px,25vw,160px); height:auto; }
 .hero__title { font-family:var(--font-serif); font-weight:700; margin:0; }
@@ -128,40 +96,41 @@ header.hero {
 :root[data-theme="dark"] .paw-print{ filter:brightness(0.8) invert(1); }
 
 /* ================ Features ================ */
-.admin-features {
-  display:grid; gap:2rem; margin:3rem 0;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
-@media(max-width:480px){
-  .admin-features { grid-template-columns:1fr; }
-}
-.feature {
-  padding:1.5rem; text-align:center;
-}
-.feature-icon {
-  width:48px; height:48px; margin-bottom:1rem;
+.admin-features { display:grid; gap:2rem; margin:3rem 0; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+@media(max-width:480px){ .admin-features{ grid-template-columns:1fr; } }
+.feature { padding:1.5rem; text-align:center; opacity:0; }
+.feature-icon { width:48px; height:48px; margin-bottom:1rem; }
+
+/* directional reveal */
+.reveal-left { transform: translateX(-100%); transition: transform 0.6s ease, opacity 0.6s ease; }
+.reveal-right { transform: translateX(100%); transition: transform 0.6s ease, opacity 0.6s ease; }
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  transform: translateX(0);
+  opacity: 1;
 }
 
+/* delay utilities */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s; }
+.delay-6 { transition-delay: 1.2s; }
+
 /* ================ Footer ================ */
-.footer {
-  padding:2rem 1rem; text-align:center;
-}
-.social-list {
-  display:flex; justify-content:center; gap:1.5rem; padding:0; list-style:none; margin-bottom:1rem;
-}
-.social-link {
-  display:flex; align-items:center; justify-content:center; padding:0.5rem; border-radius:var(--radius);
-  transition:box-shadow 0.3s,transform 0.2s;
-}
-.social-link svg{ width:2rem; height:2rem }
+.footer { padding:2rem 1rem; text-align:center; }
+.social-list { display:flex; justify-content:center; gap:1.5rem; padding:0; list-style:none; margin-bottom:1rem; }
+.social-link { display:flex; align-items:center; justify-content:center; padding:0.5rem; border-radius:var(--radius); transition:box-shadow 0.3s,transform 0.2s; }
+.social-link svg{ width:2rem; height:2rem; }
 .social-link:hover {
   transform:translateY(-2px);
   box-shadow:
     var(--neu-offset) var(--neu-offset) var(--neu-blur) var(--neu-shadow-dark),
     calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
 }
-.footer-down{ font-size:0.875rem; color:var(--text-muted); }
-:root[data-theme="dark"] .social-link rect{ fill:var(--accent-light); }
+.footer-down { font-size:0.875rem; color:var(--text-muted); }
+:root[data-theme="dark"] .social-link rect { fill: var(--accent-light); }
 :root[data-theme="dark"] .social-link path,
 :root[data-theme="dark"] .social-link polygon,
-:root[data-theme="dark"] .social-link circle{ fill:var(--text-color); }
+:root[data-theme="dark"] .social-link circle { fill: var(--text-color); }

@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Оновлення src логотипів
   function updateLogos(isDark) {
     logos.forEach(img => img.src = isDark ? img.dataset.dark : img.dataset.light);
   }
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   burgerBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
 
-  // Reveal-анімації
+  // Reveal-анімації із напрямком
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {
@@ -38,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         obs.unobserve(target);
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => io.observe(el));
 
   // Service Worker
   if ('serviceWorker' in navigator) {
