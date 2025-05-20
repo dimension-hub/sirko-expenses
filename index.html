@@ -1,62 +1,89 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EADBC8">
   <title>Sirko Club — Адмін панель</title>
-  <link rel="stylesheet" href="css/variables.css"/>
-  <link rel="stylesheet" href="css/reset.css"/>
-  <link rel="stylesheet" href="css/base.css"/>
-  <link rel="stylesheet" href="css/layout.css"/>
-  <link rel="stylesheet" href="css/components/hero.css"/>
-  <link rel="stylesheet" href="css/components/buttons.css"/>
-  <link rel="stylesheet" href="css/components/features.css"/>
-  <link rel="stylesheet" href="css/components/animations.css"/>
-  <link rel="stylesheet" href="css/components/pawprints.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="container">
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <div class="nav-logo neu">
+      <img
+        id="nav-logo"
+        class="nav-logo-img"
+        src="images/logo-light.svg"
+        data-light="images/logo-light.svg"
+        data-dark="images/logo-dark.svg"
+        alt="Sirko Club Logo">
+      <span class="nav-logo-text">Sirko Club</span>
+    </div>
+    <ul class="nav-items">
+      <li><a class="neu nav-link" href="#expenses">Форма витрат</a></li>
+      <li><a class="neu nav-link" href="#map">Карта клієнта</a></li>
+      <li><a class="neu nav-link" href="#staff">Персонал</a></li>
+      <li><a class="neu nav-link" href="#reports">Звіти</a></li>
+    </ul>
+  </nav>
 
-    <!-- Сліди лапок -->
+  <!-- Mobile Burger & Nav -->
+  <button id="burger-btn" class="burger neu" aria-label="Відкрити меню">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="mobile-nav" class="mobile-nav neu" aria-label="Мобільна навігація">
+    <ul>
+      <li><a class="nav-link" href="#expenses">Форма витрат</a></li>
+      <li><a class="nav-link" href="#map">Карта клієнта</a></li>
+      <li><a class="nav-link" href="#staff">Персонал</a></li>
+      <li><a class="nav-link" href="#reports">Звіти</a></li>
+    </ul>
+  </nav>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="dark-toggle neu" aria-label="Переключити тему">🌙</button>
+
+  <div class="container">
+    <!-- Pawprints Animation -->
     <div class="paw-container">
-      <span class="paw-print" style="--d:1s;   --x:5%;  --y:25%; --r:-15deg; --tx:20px;  --ty:-10px;"></span>
-      <span class="paw-print" style="--d:3.5s; --x:30%; --y:15%; --r:10deg;  --tx:-25px; --ty:15px;"></span>
-      <span class="paw-print" style="--d:6s;   --x:55%; --y:40%; --r:-5deg;  --tx:30px;  --ty:-20px;"></span>
-      <span class="paw-print" style="--d:8.2s; --x:75%; --y:30%; --r:20deg;  --tx:-15px; --ty:10px;"></span>
-      <span class="paw-print" style="--d:10.5s;--x:20%; --y:60%; --r:-10deg; --tx:15px;  --ty:-15px;"></span>
-      <span class="paw-print" style="--d:13s;  --x:85%; --y:75%; --r:5deg;   --tx:-20px; --ty:20px;"></span>
+      <span class="paw-print" style="--d:1s;--x:5%;--y:25%;--tx:20px;--ty:-10px;"></span>
+      <span class="paw-print" style="--d:3.5s;--x:30%;--y:10%;--tx:-25px;--ty:15px;"></span>
+      <span class="paw-print" style="--d:6s;--x:60%;--y:50%;--tx:30px;--ty:-20px;"></span>
+      <span class="paw-print" style="--d:8s;--x:80%;--y:30%;--tx:-15px;--ty:10px;"></span>
     </div>
 
-    <!-- CTA зона -->
-    <section class="cta-top reveal delay-1">
-      <button id="go-expenses" class="btn ripple pulse">Форма витрат</button>
-      <button id="go-map"      class="btn ripple">Карта клієнта</button>
-      <button id="go-staff"    class="btn ripple">Персонал</button>
-      <button id="go-reports"  class="btn ripple">Звіти</button>
-    </section>
-
-    <!-- Hero: текст ліворуч, лого праворуч -->
-    <header class="hero reveal delay-2">
-      <div class="hero__content">
-        <h1 class="hero__title">Sirko Club — Собачий адмін</h1>
-        <p class="hero__text">
-          Усі інструменти для персоналу та адміністраторів в одному місці.
-        </p>
-      </div>
-      <div class="hero__image">
+    <!-- Hero Section -->
+    <header class="hero reveal delay-2 neu" id="hero">
+      <div class="hero__image neu">
         <img
-          src="/images/logo-sketch.png"
-          alt="Sirko Club Logo"
-          class="logo-sketch">
+          id="site-logo"
+          class="logo-sketch"
+          src="images/logo-light.svg"
+          data-light="images/logo-light.svg"
+          data-dark="images/logo-dark.svg"
+          alt="Sirko Club Logo">
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
+        <p class="hero__text adaptive-text">Усі інструменти для персоналу та адміністраторів в одному місці.</p>
       </div>
     </header>
 
-    <!-- Фічі адмінки -->
-    <section id="map" class="admin-features reveal delay-3">
-      <!-- ... -->
-    </section>
+    <!-- Main Content Placeholder -->
+    <main>
+      <!-- Ваш контент тут -->
+    </main>
   </div>
 
-  <script src="js/main.js"></script>
+  <!-- App JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>

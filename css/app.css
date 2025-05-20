@@ -1,0 +1,122 @@
+/* Variables */
+:root {
+  --primary: #EADBC8;
+  --bg: var(--primary);
+  --text-color: #3C2F2F;
+  --text-muted: #6E5D5B;
+  --accent: #BFA18E;
+  --accent-light: #D1B8A1;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --radius: 16px;
+  --neu-offset: 8px;
+  --neu-blur: 16px;
+  --neu-shadow-dark: rgba(0,0,0,0.1);
+  --neu-shadow-light: rgba(255,255,255,1);
+}
+:root[data-theme="dark"] {
+  --bg: #1E1E1E;
+  --text-color: #EEEDEE;
+  --text-muted: #CCCCCC;
+  --accent: #2A2A2A;
+  --accent-light: #3A3A3A;
+  --neu-shadow-dark: rgba(0,0,0,0.7);
+  --neu-shadow-light: rgba(255,255,255,0.05);
+}
+
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text-color); overflow-x: hidden; }
+
+/* Neumorphic */
+.neu {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow:
+    var(--neu-offset) var(--neu-offset) var(--neu-blur) var(--neu-shadow-dark),
+    calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
+}
+
+/* Adaptive text */
+.adaptive-text { font-size: clamp(1rem, 2.5vw, 1.25rem); line-height: 1.4; }
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 1rem; position: relative; }
+img { display: block; max-width: 100%; }
+
+/* Desktop Navigation */
+.desktop-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.nav-logo.neu { display: flex; align-items: center; padding: 0.5rem 1rem; }
+.nav-logo-img { width: 40px; height: 40px; margin-right: 0.5rem; }
+.nav-logo-text { font-family: var(--font-serif); font-weight: 700; color: #fff; }
+.nav-items { display: flex; gap: 0.5rem; }
+.nav-link { text-decoration: none; }
+.nav-items li a.neu {
+  display: block; padding: 0.5rem 1rem;
+  font-family: var(--font-serif); color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+.nav-items li a.neu:hover { background: var(--accent-light); color: #fff; }
+@media (max-width: 768px) { .desktop-nav { display: none; } }
+
+/* Mobile Burger & Navigation */
+.burger.neu {
+  display: none; position: fixed; top: 1rem; left: 1rem;
+  width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 1002;
+}
+@media (max-width: 768px) { .burger.neu { display: flex; } }
+.burger.neu span {
+  display: block; width: 100%; height: 3px;
+  background: var(--text-muted); border-radius: 2px; margin: 0.2rem 0;
+}
+.mobile-nav.neu {
+  display: none; position: fixed; top: 0; right: 0;
+  width: 75%; height: 100vh; padding: 2.5rem 1.5rem; z-index: 1001;
+}
+.mobile-nav.neu.open { display: block; }
+.mobile-nav.neu ul { padding: 0; }
+.mobile-nav.neu li { margin-bottom: 1.5rem; list-style: none; }
+.mobile-nav.neu li:last-of-type { margin-bottom: 0; }
+.mobile-nav.neu a.nav-link {
+  display: block; padding: 0.75rem 1rem; font-family: var(--font-sans);
+  color: var(--text-color); text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.mobile-nav.neu a.nav-link:hover { background: var(--accent-light); color: #fff; }
+
+/* Theme Toggle */
+.dark-toggle.neu {
+  position: fixed; top: 1rem; right: 1rem;
+  width: 2.5rem; height: 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 1002;
+}
+
+/* Hero Section */
+header.hero {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: auto 1fr;
+  align-items: center; gap: 1.5rem;
+  padding: clamp(2rem,5vw,4rem) 1rem;
+}
+.hero__image.neu { padding: 1rem; display: flex; align-items: center; justify-content: center; }
+.logo-sketch { width: clamp(100px,25vw,160px); height: auto; }
+.hero__title { font-family: var(--font-serif); font-weight: 700; margin: 0; }
+.hero__text { color: var(--text-muted); margin-top: 0.5rem; }
+
+/* Pawprints */
+.paw-print {
+  position: absolute; width: 40px; height: 40px;
+  background: url('../images/paw-print.svg') no-repeat center/contain;
+  opacity: 0; transform-origin: center;
+  animation: pawAnim 6s var(--d) ease-in-out infinite;
+}
+@keyframes pawAnim {
+  0% { opacity: 0; transform: scale(0.5); }
+ 10% { opacity: 0.6; transform: scale(1); }
+ 80% { opacity: 0.6; }
+100% { opacity: 0; transform: scale(1.2) translate(var(--tx),var(--ty)); }
+}
+:root[data-theme="dark"] .paw-print { filter: brightness(0.8) invert(1); }
