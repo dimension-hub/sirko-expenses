@@ -54,39 +54,42 @@
   <!-- Theme Toggle -->
   <button id="theme-toggle" class="dark-toggle neu" aria-label="Переключити тему">🌙</button>
 
-  <div class="container">
-    <!-- Pawprints -->
-    <div class="paw-container">
-      <span class="paw-print" style="--d:1s;--tx:20px;--ty:-10px;"></span>
-      <span class="paw-print" style="--d:3.5s;--tx:-25px;--ty:15px;"></span>
-      <span class="paw-print" style="--d:6s;--tx:30px;--ty:-20px;"></span>
-      <span class="paw-print" style="--d:8s;--tx:-15px;--ty:10px;"></span>
-    </div>
-
-    <!-- Hero Section -->
-    <header id="hero" class="hero neu reveal delay-2">
-      <div class="hero__image neu">
-        <img
-          id="site-logo"
-          class="logo-sketch"
-          src="images/logo-light.svg"
-          data-light="images/logo-light.svg"
-          data-dark="images/logo-dark.svg"
-          alt="Sirko Club Logo Light"
-        >
+  <!-- Зробимо body флекс-контейнером -->
+  <div class="page-wrapper">
+    <div class="container">
+      <!-- Pawprints -->
+      <div class="paw-container">
+        <span class="paw-print" style="--d:1s;--tx:20px;--ty:-10px;"></span>
+        <span class="paw-print" style="--d:3.5s;--tx:-25px;--ty:15px;"></span>
+        <span class="paw-print" style="--d:6s;--tx:30px;--ty:-20px;"></span>
+        <span class="paw-print" style="--d:8s;--tx:-15px;--ty:10px;"></span>
       </div>
-      <div class="hero__content">
-        <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
-        <p class="hero__text adaptive-text">
-          Усі інструменти для персоналу та адміністраторів в одному місці.
-        </p>
-      </div>
-    </header>
 
-    <!-- Main placeholder -->
-    <main>
-      <!-- ваш вміст тут -->
-    </main>
+      <!-- Hero Section -->
+      <header id="hero" class="hero neu reveal delay-2">
+        <div class="hero__image neu">
+          <img
+            id="site-logo"
+            class="logo-sketch"
+            src="images/logo-light.svg"
+            data-light="images/logo-light.svg"
+            data-dark="images/logo-dark.svg"
+            alt="Sirko Club Logo Light"
+          >
+        </div>
+        <div class="hero__content">
+          <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
+          <p class="hero__text adaptive-text">
+            Усі інструменти для персоналу та адміністраторів в одному місці.
+          </p>
+        </div>
+      </header>
+
+      <!-- Main placeholder -->
+      <main>
+        <!-- ваш вміст тут -->
+      </main>
+    </div><!-- /.container -->
 
     <!-- Footer -->
     <footer class="footer neu reveal delay-7">
@@ -94,7 +97,7 @@
         <!-- Instagram -->
         <li>
           <a href="https://instagram.com" target="_blank" class="social-link neu" aria-label="Instagram">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="32" height="32" viewBox="0 0 24 24">
               <rect x="2" y="2" width="20" height="20" rx="5" fill="var(--accent)"/>
               <circle cx="12" cy="12" r="5" stroke="var(--text-color)" stroke-width="2"/>
               <circle cx="17" cy="7" r="1.5" fill="var(--text-color)"/>
@@ -104,7 +107,7 @@
         <!-- TikTok -->
         <li>
           <a href="https://tiktok.com" target="_blank" class="social-link neu" aria-label="TikTok">
-            <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg width="32" height="32" viewBox="0 0 24 24">
               <path d="M9 3v12.5a3.5 3.5 0 1 0 3.5-3.5V8h3A5.5 5.5 0 0 1 9 2.5V3z" fill="var(--text-color)"/>
             </svg>
           </a>
@@ -112,7 +115,7 @@
         <!-- Telegram -->
         <li>
           <a href="https://telegram.org" target="_blank" class="social-link neu" aria-label="Telegram">
-            <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg width="32" height="32" viewBox="0 0 24 24">
               <path d="M4 12l16-6-6 16L10 14l-4-2z" fill="var(--text-color)"/>
             </svg>
           </a>
@@ -120,7 +123,7 @@
         <!-- YouTube -->
         <li>
           <a href="https://youtube.com" target="_blank" class="social-link neu" aria-label="YouTube">
-            <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg width="32" height="32" viewBox="0 0 24 24">
               <rect x="2" y="5" width="20" height="14" rx="2" fill="var(--accent)"/>
               <polygon points="10,8 16,12 10,16" fill="var(--text-color)"/>
             </svg>
@@ -131,7 +134,7 @@
         <p>© 2025 Sirko Club. Всі права захищено.</p>
       </div>
     </footer>
-  </div>
+  </div><!-- /.page-wrapper -->
 
   <!-- App JS -->
   <script src="js/app.js"></script>
