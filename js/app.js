@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
+  // Функція підміни src у <img>
   function updateLogos(isDark) {
-    logos.forEach(obj => {
-      // якщо це <object>, змінюємо його data
-      obj.data = isDark ? obj.dataset.dark : obj.dataset.light;
+    logos.forEach(img => {
+      img.src = isDark ? img.dataset.dark : img.dataset.light;
     });
   }
 
-  // Початкове налаштування теми
+  // Ініціалізація теми
   let dark = htmlEl.getAttribute('data-theme') === 'dark';
   toggleBtn.textContent = dark ? '☀️' : '🌙';
   updateLogos(dark);
 
-  // Перемикач теми
+  // Перемикання теми
   toggleBtn.addEventListener('click', () => {
     dark = !dark;
     htmlEl.setAttribute('data-theme', dark ? 'dark' : 'light');
@@ -29,12 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Бургер-меню
-  burgerBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileNav.classList.remove('open');
-  }));
+  burgerBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
 
-  // Reveal-анімація
+  // Reveal-анімації
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {

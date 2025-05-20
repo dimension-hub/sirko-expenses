@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#EADBC8">
-  <title>Sirko Club — Адмін панель</title>
+  <title>Sirko Club — Собачий адмін</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,40 +15,39 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
   <!-- Desktop Navigation -->
-  <nav class="desktop-nav">
-    <div class="nav-logo neu">
-      <!-- object для SVG -->
-      <object
+  <nav class="desktop-nav neu">
+    <div class="nav-logo">
+      <img
         id="nav-logo"
         class="nav-logo-img"
-        type="image/svg+xml"
-        data="images/logo-light.svg"
-        aria-label="Sirko Club Logo">
-      </object>
+        src="images/logo-light.svg"
+        data-light="images/logo-light.svg"
+        data-dark="images/logo-dark.svg"
+        alt="Sirko Club Logo Light"
+      >
       <span class="nav-logo-text">Sirko Club</span>
     </div>
     <ul class="nav-items">
-      <li><a class="neu nav-link" href="#hero">Головна</a></li>
-      <li><a class="neu nav-link" href="#features">Інструменти</a></li>
-      <li><a class="neu nav-link" href="#gallery">Галерея</a></li>
-      <li><a class="neu nav-link" href="#testimonials">Відгуки</a></li>
-      <li><a class="neu nav-link" href="#contact">Контакти</a></li>
+      <li><a href="#hero" class="nav-link">Головна</a></li>
+      <li><a href="#features" class="nav-link">Інструменти</a></li>
+      <li><a href="#gallery" class="nav-link">Галерея</a></li>
+      <li><a href="#testimonials" class="nav-link">Відгуки</a></li>
+      <li><a href="#contact" class="nav-link">Контакти</a></li>
     </ul>
   </nav>
 
-  <!-- Mobile Burger & Nav -->
+  <!-- Mobile Burger -->
   <button id="burger-btn" class="burger neu" aria-label="Відкрити меню">
     <span></span><span></span><span></span>
   </button>
-  <nav id="mobile-nav" class="mobile-nav neu" aria-label="Мобільна навігація">
+  <nav id="mobile-nav" class="mobile-nav neu">
     <ul>
-      <li><a class="nav-link" href="#hero">Головна</a></li>
-      <li><a class="nav-link" href="#features">Інструменти</a></li>
-      <li><a class="nav-link" href="#gallery">Галерея</a></li>
-      <li><a class="nav-link" href="#testimonials">Відгуки</a></li>
-      <li><a class="nav-link" href="#contact">Контакти</a></li>
+      <li><a href="#hero" class="nav-link">Головна</a></li>
+      <li><a href="#features" class="nav-link">Інструменти</a></li>
+      <li><a href="#gallery" class="nav-link">Галерея</a></li>
+      <li><a href="#testimonials" class="nav-link">Відгуки</a></li>
+      <li><a href="#contact" class="nav-link">Контакти</a></li>
     </ul>
   </nav>
 
@@ -56,24 +55,25 @@
   <button id="theme-toggle" class="dark-toggle neu" aria-label="Переключити тему">🌙</button>
 
   <div class="container">
-    <!-- Pawprints Animation -->
+    <!-- Pawprints -->
     <div class="paw-container">
-      <span class="paw-print" style="--d:1s;--x:5%;--y:25%;--tx:20px;--ty:-10px;"></span>
-      <span class="paw-print" style="--d:3.5s;--x:30%;--y:10%;--tx:-25px;--ty:15px;"></span>
-      <span class="paw-print" style="--d:6s;--x:60%;--y:50%;--tx:30px;--ty:-20px;"></span>
-      <span class="paw-print" style="--d:8s;--x:80%;--y:30%;--tx:-15px;--ty:10px;"></span>
+      <span class="paw-print" style="--d:1s;--tx:20px;--ty:-10px;"></span>
+      <span class="paw-print" style="--d:3.5s;--tx:-25px;--ty:15px;"></span>
+      <span class="paw-print" style="--d:6s;--tx:30px;--ty:-20px;"></span>
+      <span class="paw-print" style="--d:8s;--tx:-15px;--ty:10px;"></span>
     </div>
 
     <!-- Hero Section -->
-    <header id="hero" class="hero reveal delay-2 neu">
+    <header id="hero" class="hero neu reveal delay-2">
       <div class="hero__image neu">
-        <object
+        <img
           id="site-logo"
           class="logo-sketch"
-          type="image/svg+xml"
-          data="images/logo-light.svg"
-          aria-label="Sirko Club Logo">
-        </object>
+          src="images/logo-light.svg"
+          data-light="images/logo-light.svg"
+          data-dark="images/logo-dark.svg"
+          alt="Sirko Club Logo Light"
+        >
       </div>
       <div class="hero__content">
         <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
@@ -81,9 +81,9 @@
       </div>
     </header>
 
-    <!--Main placeholder-->
+    <!-- Main placeholder -->
     <main>
-      <!-- Ваш контент тут -->
+      <!-- ваш вміст тут -->
     </main>
   </div>
 
