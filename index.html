@@ -31,6 +31,7 @@
       <li><a href="#features" class="nav-link">Інструменти</a></li>
       <li><a href="#gallery" class="nav-link">Галерея</a></li>
       <li><a href="#testimonials" class="nav-link">Відгуки</a></li>
+      <li><a href="#subscribe" class="nav-link">Підписка</a></li>
       <li><a href="#contact" class="nav-link">Контакти</a></li>
     </ul>
   </nav>
@@ -45,6 +46,7 @@
       <li><a href="#features" class="nav-link">Інструменти</a></li>
       <li><a href="#gallery" class="nav-link">Галерея</a></li>
       <li><a href="#testimonials" class="nav-link">Відгуки</a></li>
+      <li><a href="#subscribe" class="nav-link">Підписка</a></li>
       <li><a href="#contact" class="nav-link">Контакти</a></li>
     </ul>
   </nav>
@@ -80,15 +82,64 @@
         </div>
       </header>
 
-      <!-- Dog Run Animation -->
-      <div class="dog-run-container">
-        <div id="dog-run"></div>
-      </div>
+      <!-- Features Section -->
+      <section id="features" class="admin-features reveal delay-3">
+        <div class="feature neu">
+          <img src="images/icon-expenses.svg" alt="" class="feature-icon">
+          <h3>Форма витрат</h3>
+          <p>Швидко фіксуйте всі витрати та отримуйте звіти.</p>
+        </div>
+        <div class="feature neu">
+          <img src="images/icon-calendar.svg" alt="" class="feature-icon">
+          <h3>Календар записів</h3>
+          <p>Плануйте зустрічі та заходи в одному місці.</p>
+        </div>
+        <div class="feature neu">
+          <img src="images/icon-reports.svg" alt="" class="feature-icon">
+          <h3>Звіти в реальному часі</h3>
+          <p>Слідкуйте за показниками у будь-який момент.</p>
+        </div>
+      </section>
 
-      <!-- Main placeholder -->
-      <main>
-        <!-- ваш вміст тут -->
-      </main>
+      <!-- Gallery Section -->
+      <section id="gallery" class="gallery reveal delay-4">
+        <div class="grid">
+          <img src="images/gallery1.jpg" alt="" class="neu">
+          <img src="images/gallery2.jpg" alt="" class="neu">
+          <img src="images/gallery3.jpg" alt="" class="neu">
+          <img src="images/gallery4.jpg" alt="" class="neu">
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials reveal delay-5">
+        <div class="testi-wrapper">
+          <blockquote class="neu">
+            <p>“Sirko Club зробив нашу роботу вабільнішою і швидшою!”</p>
+            <footer>— Олена, адміністратор</footer>
+          </blockquote>
+          <blockquote class="neu">
+            <p>“Найкращі інструменти для догляду за тваринами.”</p>
+            <footer>— Іван, ветеринар</footer>
+          </blockquote>
+          <blockquote class="neu">
+            <p>“Простота та зрозумілість інтерфейсу!”</p>
+            <footer>— Марія, технічний працівник</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Subscribe Section -->
+      <section id="subscribe" class="subscribe reveal delay-6">
+        <div class="neu subscribe-box">
+          <h3>Будьте в курсі</h3>
+          <p>Отримуйте оновлення та новини Sirko Club</p>
+          <form>
+            <input type="email" placeholder="Ваш e-mail" required>
+            <button type="submit" class="btn neu">Підписатися</button>
+          </form>
+        </div>
+      </section>
     </div><!-- /.container -->
 
     <!-- Footer -->
@@ -113,8 +164,6 @@
     </footer>
   </div><!-- /.page-wrapper -->
 
-  <!-- Lottie.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
   <!-- App JS -->
   <script src="js/app.js"></script>
 </body>
