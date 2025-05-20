@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Функція підміни src у <img>
+  // Оновлення src логотипів
   function updateLogos(isDark) {
     logos.forEach(img => img.src = isDark ? img.dataset.dark : img.dataset.light);
   }
