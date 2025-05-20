@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#EADBC8">
   <title>Sirko Club — Собачий адмін</title>
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
   <!-- App CSS -->
   <link rel="stylesheet" href="css/app.css">
 </head>
@@ -18,14 +16,11 @@
   <!-- Desktop Navigation -->
   <nav class="desktop-nav neu">
     <div class="nav-logo neu">
-      <img
-        id="nav-logo"
-        class="nav-logo-img"
-        src="images/logo-light.svg"
-        data-light="images/logo-light.svg"
-        data-dark="images/logo-dark.svg"
-        alt="Sirko Club Logo"
-      >
+      <img id="nav-logo" class="nav-logo-img"
+           src="images/logo-light.svg"
+           data-light="images/logo-light.svg"
+           data-dark="images/logo-dark.svg"
+           alt="Sirko Club Logo">
       <span class="nav-logo-text">Sirko Club</span>
     </div>
     <ul class="nav-items">
@@ -67,31 +62,21 @@
       <!-- Hero Section -->
       <header id="hero" class="hero neu reveal delay-2">
         <div class="hero__image neu">
-          <img
-            id="site-logo"
-            class="logo-sketch"
-            src="images/logo-light.svg"
-            data-light="images/logo-light.svg"
-            data-dark="images/logo-dark.svg"
-            alt="Sirko Club Logo"
-          >
+          <img id="site-logo" class="logo-sketch"
+               src="images/logo-light.svg"
+               data-light="images/logo-light.svg"
+               data-dark="images/logo-dark.svg"
+               alt="Sirko Club Logo">
         </div>
         <div class="hero__content">
           <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
-          <p class="hero__text adaptive-text">
-            Усі інструменти для персоналу та адміністраторів в одному місці.
-          </p>
+          <p class="hero__text adaptive-text">Усі інструменти для персоналу та адміністраторів в одному місці.</p>
         </div>
       </header>
 
-      <!-- Animated wave divider -->
-      <div class="section-wave">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path
-            d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
-            fill="var(--accent)"
-          />
-        </svg>
+      <!-- Dog Run Animation -->
+      <div class="dog-run-container">
+        <div id="dog-run"></div>
       </div>
 
       <!-- Main placeholder -->
@@ -103,18 +88,7 @@
     <!-- Footer -->
     <footer class="footer neu reveal delay-7">
       <ul class="social-list">
-        <li><a href="https://instagram.com" target="_blank" class="social-link neu" aria-label="Instagram">
-          <svg width="32" height="32" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="var(--accent)"/><circle cx="12" cy="12" r="5" stroke="var(--text-color)" stroke-width="2"/><circle cx="17" cy="7" r="1.5" fill="var(--text-color)"/></svg>
-        </a></li>
-        <li><a href="https://tiktok.com" target="_blank" class="social-link neu" aria-label="TikTok">
-          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M9 3v12.5a3.5 3.5 0 1 0 3.5-3.5V8h3A5.5 5.5 0 0 1 9 2.5V3z" fill="var(--text-color)"/></svg>
-        </a></li>
-        <li><a href="https://telegram.org" target="_blank" class="social-link neu" aria-label="Telegram">
-          <svg width="32" height="32" viewBox="0 0 24 24"><path d="M4 12l16-6-6 16L10 14l-4-2z" fill="var(--text-color)"/></svg>
-        </a></li>
-        <li><a href="https://youtube.com" target="_blank" class="social-link neu" aria-label="YouTube">
-          <svg width="32" height="32" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" fill="var(--accent)"/><polygon points="10,8 16,12 10,16" fill="var(--text-color)"/></svg>
-        </a></li>
+        <!-- ...соціальні іконки... -->
       </ul>
       <div class="footer-down adaptive-text">
         <p>© 2025 Sirko Club. Всі права захищено.</p>
@@ -122,6 +96,8 @@
     </footer>
   </div><!-- /.page-wrapper -->
 
+  <!-- Lottie.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
   <!-- App JS -->
   <script src="js/app.js"></script>
 </body>
