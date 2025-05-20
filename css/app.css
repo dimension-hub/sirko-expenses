@@ -146,6 +146,25 @@ header.hero {
 }
 :root[data-theme="dark"] .paw-print { filter: brightness(0.8) invert(1); }
 
+/* ================ Animated wave divider ================ */
+.section-wave {
+  margin: 2rem 0;
+  overflow: hidden;
+}
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: wavePulse 6s ease-in-out infinite;
+}
+@keyframes wavePulse {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+:root[data-theme="dark"] .section-wave path {
+  fill: var(--accent-light);
+}
+
 /* ================ Footer ================ */
 .footer {
   padding: 2rem 1rem;
