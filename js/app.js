@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Оновлення src для SVG-логотипів
   function updateLogos(isDark) {
-    logos.forEach(img => {
-      img.src = isDark ? img.dataset.dark : img.dataset.light;
+    logos.forEach(obj => {
+      // якщо це <object>, змінюємо його data
+      obj.data = isDark ? obj.dataset.dark : obj.dataset.light;
     });
   }
 
-  // Початкова ініціалізація теми
+  // Початкове налаштування теми
   let dark = htmlEl.getAttribute('data-theme') === 'dark';
   toggleBtn.textContent = dark ? '☀️' : '🌙';
   updateLogos(dark);
@@ -28,15 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLogos(dark);
   });
 
-  // Бургер-меню для мобільних
-  burgerBtn.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-  });
-  mobileNav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => mobileNav.classList.remove('open'));
-  });
+  // Бургер-меню
+  burgerBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+  }));
 
-  // Reveal анімації
+  // Reveal-анімація
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Реєстрація service worker
+  // Service Worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/js/service-worker.js');
   }
