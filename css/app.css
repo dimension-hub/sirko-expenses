@@ -35,7 +35,7 @@ body {
   background: var(--bg);
   color: var(--text-color);
   overflow-x: hidden;
-  padding-top: 64px; /* під фіксований header */
+  padding-top: 64px; /* місце під фіксований header */
 }
 
 /* Neumorphic */
@@ -45,7 +45,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Desktop-nav */
+/* Desktop nav */
 .desktop-nav {
   position: fixed; top:0; left:0; width:100%;
   display:flex; align-items:center; justify-content: space-between;
@@ -55,7 +55,7 @@ body {
   display:flex; align-items:center; padding:0.5rem;
 }
 @media(max-width:768px){
-  .nav-logo { margin-left:56px; } /* відступ, щоб не перекрив бургер */
+  .nav-logo { margin-left:56px; } /* простір для бургер-кнопки */
 }
 .nav-logo-img {
   width:40px; height:40px; margin-right:0.5rem;
@@ -79,7 +79,7 @@ body {
   .nav-items { display:none; }
 }
 
-/* Burger & Theme Toggle */
+/* Burger & Theme */
 .burger, .dark-toggle {
   position:fixed; top:16px;
   width:40px; height:40px;
