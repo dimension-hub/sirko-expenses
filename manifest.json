@@ -1,14 +1,13 @@
-
 {
-  "name": "Sirko Club",
-  "short_name": "Sirko",
-  "start_url": "/",
+  "name": "Sirko Club Admin",
+  "short_name": "SirkoAdmin",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#43766c",
+  "background_color": "#FAF4E6",
+  "theme_color": "#8B6236",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "images/logo-light.png",
       "sizes": "512x512",
       "type": "image/png"
     }
