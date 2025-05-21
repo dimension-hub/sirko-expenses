@@ -1,3 +1,5 @@
+// js/app.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const htmlEl    = document.documentElement;
   const toggleBtn = document.getElementById('theme-toggle');
@@ -8,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Підміна src логотипів
+  // Функція оновлення src у всіх логотипів
   function updateLogos() {
     const dark = htmlEl.getAttribute('data-theme') === 'dark';
     logos.forEach(img => {
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.textContent = dark ? '☀️' : '🌙';
   }
 
-  // Ініціалізація
+  // Початкова ініціалізація
   updateLogos();
 
   // Перемикання теми
@@ -27,15 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLogos();
   });
 
-  // Бургер-меню
+  // Відкриття/закриття мобільного меню
   burgerBtn.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
   });
-  mobileNav.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => mobileNav.classList.remove('open'))
+  mobileNav.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => mobileNav.classList.remove('open'))
   );
 
-  // Reveal-анімації
+  // Reveal-анімації при скролі
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {
@@ -45,9 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('.reveal, .footer').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal-left, .reveal-right, .footer').forEach(el => {
+    io.observe(el);
+  });
 
-  // Service Worker
+  // Реєстрація service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/js/service-worker.js');
   }

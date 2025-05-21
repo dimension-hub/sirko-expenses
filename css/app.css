@@ -1,27 +1,27 @@
 /* ================ Variables ================ */
 :root {
-  --primary: #EADBC8;
-  --bg: var(--primary);
+  --primary:       #EADBC8;
+  --bg:            var(--primary);
   --primary-light: #F5E8DE;
-  --card-bg: var(--primary-light);
-  --accent: #BFA18E;
-  --accent-light: #D1B8A1;
-  --text-color: #3C2F2F;
-  --text-muted: #6E5D5B;
-  --radius: 16px;
-  --neu-offset: 8px;
-  --neu-blur: 16px;
+  --card-bg:       var(--primary-light);
+  --accent:        #BFA18E;
+  --accent-light:  #D1B8A1;
+  --text-color:    #3C2F2F;
+  --text-muted:    #6E5D5B;
+  --radius:        16px;
+  --neu-offset:    8px;
+  --neu-blur:      16px;
   --neu-shadow-dark: rgba(0,0,0,0.1);
   --neu-shadow-light: rgba(255,255,255,1);
-  --transition: 0.3s;
+  --transition:    0.3s;
 }
 :root[data-theme="dark"] {
-  --bg: #212327;
-  --card-bg: #1e1e1e;
-  --accent: #2A2A2A;
-  --accent-light: #3A3A3A;
-  --text-color: #EEEDEE;
-  --text-muted: #CCCCCC;
+  --bg:            #212327;
+  --card-bg:       #1e1e1e;
+  --accent:        #2A2A2A;
+  --accent-light:  #3A3A3A;
+  --text-color:    #EEEDEE;
+  --text-muted:    #CCCCCC;
   --neu-shadow-dark: rgba(0,0,0,0.7);
   --neu-shadow-light: rgba(255,255,255,0.05);
 }
@@ -29,7 +29,7 @@
 /* ================ Reset & Base ================ */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
+  margin:  0;
   padding: 0;
 }
 html, body {
@@ -37,7 +37,7 @@ html, body {
   scroll-behavior: smooth;
 }
 body {
-  font-family: var(--font-sans);
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text-color);
   overflow-x: hidden;
@@ -56,7 +56,8 @@ body {
 /* ================ Adaptive text ================ */
 .adaptive-text {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.4;
+  line-height: 1.5;    /* більше інтерліньяжу для елегантності */
+  letter-spacing: 0.5px;
 }
 
 /* ================ Layout ================ */
@@ -84,10 +85,12 @@ img {
   height: 64px;
   z-index: 1002;
 }
+/* Точкова правка: відключаємо transition для миттєвої адаптації */
 .nav-logo {
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  transition: none !important;
 }
 .nav-logo-img {
   width: 40px;
@@ -95,7 +98,7 @@ img {
   margin-right: 0.5rem;
 }
 .nav-logo-text {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
 }
 .nav-items {
@@ -137,6 +140,7 @@ img {
     calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
   z-index: 1003;
   cursor: pointer;
+  transition: none !important; /* миттєве позиціонування */
 }
 .burger {
   left: 16px;
@@ -156,17 +160,16 @@ img {
   .dark-toggle {
     display: flex;
   }
-
-  /* Центруємо nav-logo між кнопками */
+  /* Точкова правка: центруємо nav-logo між кнопками */
   .nav-logo {
     position: fixed;
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1003;
-    /* Фіксуємо висоту, щоб не вистрибувало за рамки */
     height: 40px;
     overflow: hidden;
+    padding: 0;
   }
   .nav-logo-img {
     width: 32px;
@@ -224,7 +227,7 @@ header.hero {
   width: clamp(100px, 25vw, 160px);
 }
 .hero__title {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
 }
@@ -313,24 +316,12 @@ header.hero {
   transform: translateX(0) translateY(0);
   opacity: 1;
 }
-.delay-1 {
-  transition-delay: 0.2s;
-}
-.delay-2 {
-  transition-delay: 0.4s;
-}
-.delay-3 {
-  transition-delay: 0.6s;
-}
-.delay-4 {
-  transition-delay: 0.8s;
-}
-.delay-5 {
-  transition-delay: 1s;
-}
-.delay-6 {
-  transition-delay: 1.2s;
-}
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s; }
+.delay-6 { transition-delay: 1.2s; }
 
 /* ================ Footer Section ================ */
 .footer {
