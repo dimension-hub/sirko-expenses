@@ -91,7 +91,12 @@ img {
 }
 @media (max-width: 768px) {
   .nav-logo {
-    margin-left: 56px; /* простір для бургер-кнопки */
+    /* показуємо логотип на мобільних у центрі */
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1003;
   }
 }
 .nav-logo-img {
