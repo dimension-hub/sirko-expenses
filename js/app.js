@@ -8,21 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Ініціалізація теми та логотипів
-  let dark = htmlEl.getAttribute('data-theme') === 'dark';
+  // Функція підміни src у <img>
   function updateLogos() {
-    logos.forEach(img => img.src = dark ? img.dataset.dark : img.dataset.light);
+    const dark = htmlEl.getAttribute('data-theme') === 'dark';
+    logos.forEach(img => {
+      img.src = dark ? img.dataset.dark : img.dataset.light;
+    });
     toggleBtn.textContent = dark ? '☀️' : '🌙';
   }
+
+  // Ініціалізація
   updateLogos();
 
+  // Перемикання теми
   toggleBtn.addEventListener('click', () => {
-    dark = !dark;
-    htmlEl.setAttribute('data-theme', dark ? 'dark' : 'light');
+    const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-theme', newTheme);
     updateLogos();
   });
 
-  // Бургер-меню (тільки мобільне)
+  // Бургер-меню (тільки на мобілці)
   burgerBtn.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
   });
