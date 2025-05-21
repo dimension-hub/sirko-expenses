@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Функція підміни src у <img>
+  // Підміна src логотипів
   function updateLogos() {
     const dark = htmlEl.getAttribute('data-theme') === 'dark';
     logos.forEach(img => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLogos();
   });
 
-  // Бургер-меню (тільки на мобілці)
+  // Бургер-меню
   burgerBtn.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
   });
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('.reveal-left, .reveal-right, .footer').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .footer').forEach(el => io.observe(el));
 
   // Service Worker
   if ('serviceWorker' in navigator) {
