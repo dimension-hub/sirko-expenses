@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="uk" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#EADBC8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EADBC8" />
   <title>Sirko Club — Собачий адмін</title>
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-  <!-- Desktop Navigation -->
+  <!-- HEADER -->
   <nav class="desktop-nav neu">
     <div class="nav-logo neu">
       <img
@@ -18,7 +18,7 @@
         data-light="images/logo-light.svg"
         data-dark="images/logo-dark.svg"
         alt="Sirko Club Logo"
-      >
+      />
       <span class="nav-logo-text">Sirko Club</span>
     </div>
     <ul class="nav-items">
@@ -28,13 +28,13 @@
     </ul>
   </nav>
 
-  <!-- Mobile Burger & Theme Toggle -->
+  <!-- BURGER & THEME -->
   <button id="burger-btn" class="burger neu" aria-label="Відкрити меню">
     <span></span><span></span><span></span>
   </button>
   <button id="theme-toggle" class="dark-toggle neu" aria-label="Переключити тему">🌙</button>
 
-  <!-- Mobile Navigation -->
+  <!-- MOBILE NAV -->
   <nav id="mobile-nav" class="mobile-nav neu">
     <ul>
       <li><a href="#hero" class="nav-link">Головна</a></li>
@@ -45,15 +45,7 @@
 
   <div class="page-wrapper">
     <div class="container">
-      <!-- Pawprints -->
-      <div class="paw-container">
-        <span class="paw-print" style="--d:1s;--tx:20px;--ty:-10px;"></span>
-        <span class="paw-print" style="--d:3.5s;--tx:-25px;--ty:15px;"></span>
-        <span class="paw-print" style="--d:6s;--tx:30px;--ty:-20px;"></span>
-        <span class="paw-print" style="--d:8s;--tx:-15px;--ty:10px;"></span>
-      </div>
-
-      <!-- Hero Section -->
+      <!-- HERO -->
       <header id="hero" class="hero neu reveal-left delay-1">
         <div class="hero__image neu">
           <img
@@ -63,77 +55,83 @@
             data-light="images/logo-light.svg"
             data-dark="images/logo-dark.svg"
             alt="Sirko Club Logo"
-          >
+          />
         </div>
         <div class="hero__content">
           <h1 class="hero__title adaptive-text">Sirko Club — Собачий адмін</h1>
-          <p class="hero__text adaptive-text">Усі інструменти для персоналу та адміністраторів в одному місці.</p>
+          <p class="hero__text adaptive-text">
+            Усі інструменти для персоналу та адміністраторів в одному місці.
+          </p>
         </div>
       </header>
 
-      <!-- Features Section -->
+      <!-- FEATURES -->
       <section id="features" class="admin-features">
         <div class="feature neu reveal-left delay-2">
-          <img src="images/icon-expenses.svg" alt="Форма витрат" class="feature-icon">
+          <img src="images/icon-expenses.svg" alt="Форма витрат" class="feature-icon" />
           <h3>Форма витрат</h3>
           <p>Швидко фіксуйте всі витрати та отримуйте звіти.</p>
         </div>
         <div class="feature neu reveal-right delay-3">
-          <img src="images/icon-calendar.svg" alt="Календар записів" class="feature-icon">
+          <img src="images/icon-calendar.svg" alt="Календар записів" class="feature-icon" />
           <h3>Календар записів</h3>
           <p>Плануйте зустрічі та заходи в одному місці.</p>
         </div>
         <div class="feature neu reveal-left delay-4">
-          <img src="images/icon-reports.svg" alt="Звіти в реальному часі" class="feature-icon">
+          <img src="images/icon-reports.svg" alt="Звіти" class="feature-icon" />
           <h3>Звіти в реальному часі</h3>
           <p>Слідкуйте за показниками у будь-який момент.</p>
         </div>
         <div class="feature neu reveal-right delay-5">
-          <img src="images/icon-map.svg" alt="Карта клієнтів" class="feature-icon">
+          <img src="images/icon-map.svg" alt="Карта клієнтів" class="feature-icon" />
           <h3>Карта клієнтів</h3>
           <p>Відстежуйте локації та маршрути ваших клієнтів.</p>
         </div>
       </section>
-    </div><!-- /.container -->
+    </div>
 
-    <!-- Footer (відновлено оригінальний) -->
+    <!-- FOOTER -->
     <footer id="contact" class="footer neu reveal delay-6">
       <ul class="social-list">
         <li>
           <a href="https://instagram.com" target="_blank" class="social-link neu" aria-label="Instagram">
+            <!-- Покращена crisp SVG іконка Instagram -->
             <svg width="32" height="32" viewBox="0 0 24 24">
-              <rect x="2" y="2" width="20" height="20" rx="5" fill="var(--accent)"/>
-              <circle cx="12" cy="12" r="5" stroke="var(--text-color)" stroke-width="2"/>
-              <circle cx="17" cy="7" r="1.5" fill="var(--text-color)"/>
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="var(--accent)" />
+              <circle cx="12" cy="12" r="5" stroke="var(--text-color)" stroke-width="2" fill="none"/>
+              <circle cx="17" cy="7" r="1.5" fill="var(--text-color)" />
             </svg>
           </a>
         </li>
         <li>
           <a href="https://tiktok.com" target="_blank" class="social-link neu" aria-label="TikTok">
+            <!-- Crisp SVG TikTok -->
             <svg width="32" height="32" viewBox="0 0 24 24">
-              <path d="M9 3v12.5a3.5 3.5 0 1 0 3.5-3.5V8h3A5.5 5.5 0 0 1 9 2.5V3z" fill="var(--text-color)"/>
+              <path d="M9 3v12.5a3.5 3.5 0 1 0 3.5-3.5V8h3A5.5 5.5 0 0 1 9 2.5V3z" fill="var(--text-color)" />
             </svg>
           </a>
         </li>
         <li>
           <a href="https://telegram.org" target="_blank" class="social-link neu" aria-label="Telegram">
+            <!-- Crisp SVG Telegram -->
             <svg width="32" height="32" viewBox="0 0 24 24">
-              <path d="M4 12l16-6-6 16L10 14l-4-2z" fill="var(--text-color)"/>
+              <path d="M4 12l16-6-6 16L10 14l-4-2z" fill="var(--text-color)" />
             </svg>
           </a>
         </li>
         <li>
           <a href="https://youtube.com" target="_blank" class="social-link neu" aria-label="YouTube">
+            <!-- Crisp SVG YouTube -->
             <svg width="32" height="32" viewBox="0 0 24 24">
-              <rect x="2" y="5" width="20" height="14" rx="2" fill="var(--accent)"/>
-              <polygon points="10,8 16,12 10,16" fill="var(--text-color)"/>
+              <rect x="2" y="5" width="20" height="14" rx="2" fill="var(--accent)" />
+              <polygon points="10,8 16,12 10,16" fill="var(--text-color)" />
             </svg>
           </a>
         </li>
       </ul>
       <p class="footer-down adaptive-text">© 2025 Sirko Club. Всі права захищено.</p>
     </footer>
-  </div><!-- /.page-wrapper -->
+  </div>
 
   <script src="js/app.js"></script>
 </body>

@@ -37,7 +37,7 @@ body {
   background: var(--bg);
   color: var(--text-color);
   overflow-x: hidden;
-  padding-top: 64px;
+  padding-top: 64px; /* під фіксований хедер */
 }
 
 /* Neumorphic */
@@ -55,6 +55,10 @@ body {
 }
 .nav-logo {
   display: flex; align-items: center; padding: 0.5rem;
+}
+@media (max-width: 768px) {
+  /* у мобільній версії зсуваємо логотип праворуч, щоби бургер не накривав */
+  .nav-logo { margin-left: 56px; }
 }
 .nav-logo-img {
   width: 40px; height: 40px; margin-right: 0.5rem;
@@ -187,8 +191,19 @@ body {
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 .footer.is-visible { transform: translateY(0); opacity: 1; }
+
+/* Соціальні іконки: поліпшений ефект та чіткість */
 .social-list {
   display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;
+}
+.social-link svg {
+  width: 32px; height: 32px;
+  transition: transform var(--transition), filter var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.social-link:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 .footer-down {
   color: var(--text-muted);
