@@ -1,5 +1,3 @@
-// js/app.js
-
 document.addEventListener('DOMContentLoaded', () => {
   const htmlEl    = document.documentElement;
   const toggleBtn = document.getElementById('theme-toggle');
@@ -10,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Функція оновлення src у всіх логотипів
+  // Функція оновлення src у логотипів
   function updateLogos() {
     const dark = htmlEl.getAttribute('data-theme') === 'dark';
     logos.forEach(img => {
@@ -29,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLogos();
   });
 
-  // Відкриття/закриття мобільного меню
+  // Мобільне меню
   burgerBtn.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
   });
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => mobileNav.classList.remove('open'))
   );
 
-  // Reveal-анімації при скролі
+  // Reveal-анімації
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {
@@ -51,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(el);
   });
 
-  // Реєстрація service worker
+  // Service Worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/js/service-worker.js');
   }
