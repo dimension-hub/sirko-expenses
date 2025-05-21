@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Placeholder: в реалі треба підключити Google Calendar API
-  const todayBookingsEl = document.getElementById('today-bookings');
-  // TODO: Fetch from Google Calendar
-  todayBookingsEl.textContent = 8;
+  // Підтягуємо сьогоднішні записи з Google Calendar API
+  const todayEl = document.getElementById('today-bookings');
+  // TODO: тут ваше API-викликання → todayEl.textContent = fetchedCount;
+  todayEl.textContent = 8;
 
-  // Кнопки показу секцій
+  // Логіка показу секцій
   const sections = {
     'btn-expense-form': 'expense-form',
     'btn-reports':      'reports',
     'btn-client-map':   'client-map'
   };
-  Object.entries(sections).forEach(([btnId, secId]) => {
-    document.getElementById(btnId).onclick = () => {
-      // сховати всі
+  Object.entries(sections).forEach(([btn, sec]) => {
+    document.getElementById(btn).onclick = () => {
       Object.values(sections).forEach(id => document.getElementById(id).classList.add('hidden'));
-      // показати обрану
-      document.getElementById(secId).classList.remove('hidden');
+      document.getElementById(sec).classList.remove('hidden');
     };
   });
 });
