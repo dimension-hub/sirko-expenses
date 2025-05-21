@@ -6,7 +6,7 @@
   --card-bg:       var(--primary-light);
   --accent:        #BFA18E;
   --accent-light:  #D1B8A1;
-  --text-color:    #3C2F2F;
+  --text-color:    #4A3E3E;     /* тепліший чорний для більшої гармонії */
   --text-muted:    #6E5D5B;
   --radius:        16px;
   --neu-offset:    8px;
@@ -18,9 +18,9 @@
 :root[data-theme="dark"] {
   --bg:            #212327;
   --card-bg:       #1e1e1e;
-  --accent:        #2A2A2A;
+  --accent:       #2A2A2A;
   --accent-light:  #3A3A3A;
-  --text-color:    #EEEDEE;
+  --text-color:    #DCD3CF;     /* тепліший світлий у темному режимі */
   --text-muted:    #CCCCCC;
   --neu-shadow-dark: rgba(0,0,0,0.7);
   --neu-shadow-light: rgba(255,255,255,0.05);
@@ -41,7 +41,7 @@ body {
   background: var(--bg);
   color: var(--text-color);
   overflow-x: hidden;
-  padding-top: 64px;
+  padding-top: 64px; /* простір для фіксованого header */
 }
 
 /* ================ Neumorphic ================ */
@@ -50,14 +50,15 @@ body {
   border-radius: var(--radius);
   box-shadow:
     var(--neu-offset) var(--neu-offset) var(--neu-blur) var(--neu-shadow-dark),
-    calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
+    calc(var(--neu-offset) * -1) calc(var(--neu-offset) * -1) var(--neu-blur) var(--neu-shadow-light);
 }
 
 /* ================ Adaptive text ================ */
 .adaptive-text {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.5;
-  letter-spacing: 0.5px;
+  line-height: 1.6;       /* збільшений інтерліньяж */
+  letter-spacing: 0.6px;  /* трохи більше міжлітерного простору */
+  color: var(--text-color);
 }
 
 /* ================ Layout ================ */
@@ -95,7 +96,7 @@ img {
   width: 40px;
   height: 40px;
   margin-right: 0.5rem;
-  border-radius: 50%; /* круглий логотип */
+  border-radius: 8px; /* легке заокруглення */
 }
 .nav-logo-text {
   font-family: 'Playfair Display', serif;
@@ -137,13 +138,17 @@ img {
   border-radius: var(--radius);
   box-shadow:
     var(--neu-offset) var(--neu-offset) var(--neu-blur) var(--neu-shadow-dark),
-    calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
+    calc(var(--neu-offset) * -1) calc(var(--neu-offset) * -1) var(--neu-blur) var(--neu-shadow-light);
   z-index: 1003;
   cursor: pointer;
   transition: none !important;
 }
-.burger { left: 16px; }
-.dark-toggle { right: 16px; }
+.burger {
+  left: 16px;
+}
+.dark-toggle {
+  right: 16px;
+}
 .burger span {
   display: block;
   width: 20px;
@@ -220,7 +225,7 @@ header.hero {
 }
 .logo-sketch {
   width: clamp(100px, 25vw, 160px);
-  border-radius: 50%; /* круглий логотип */
+  border-radius: 8px; /* легке заокруглення */
 }
 .hero__title {
   font-family: 'Playfair Display', serif;
@@ -235,15 +240,18 @@ header.hero {
 /* ================ Pawprints ================ */
 .paw-container {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   overflow: hidden;
   z-index: 1;
 }
 .paw-print {
   position: absolute;
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   background: url('../images/paw-print.svg') no-repeat center/contain;
   animation: pawAnim 6s var(--d) ease-in-out infinite;
 }
@@ -317,7 +325,8 @@ header.hero {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius);
   transition: background var(--transition), transform var(--transition);
 }
@@ -326,7 +335,8 @@ header.hero {
   transform: translateY(-2px);
 }
 .social-link svg {
-  width: 24px; height: 24px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
   stroke: currentColor;
   stroke-width: 1.5;
