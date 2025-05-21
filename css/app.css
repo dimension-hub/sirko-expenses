@@ -89,16 +89,6 @@ img {
   align-items: center;
   padding: 0.5rem;
 }
-@media (max-width: 768px) {
-  .nav-logo {
-    /* показуємо логотип на мобільних у центрі */
-    position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1003;
-  }
-}
 .nav-logo-img {
   width: 40px;
   height: 40px;
@@ -142,7 +132,9 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--neu-offset) var(--neu-offset) var(--neu-blur) var(--neu-shadow-dark),
+    calc(var(--neu-offset)*-1) calc(var(--neu-offset)*-1) var(--neu-blur) var(--neu-shadow-light);
   z-index: 1003;
   cursor: pointer;
 }
@@ -163,6 +155,27 @@ img {
   .burger,
   .dark-toggle {
     display: flex;
+  }
+
+  /* Центруємо nav-logo між кнопками */
+  .nav-logo {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1003;
+    /* Фіксуємо висоту, щоб не вистрибувало за рамки */
+    height: 40px;
+    overflow: hidden;
+  }
+  .nav-logo-img {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.4rem;
+  }
+  .nav-logo-text {
+    font-size: 1rem;
+    white-space: nowrap;
   }
 }
 
@@ -193,7 +206,7 @@ img {
   margin-bottom: 0;
 }
 
-/* ================ Hero ================ */
+/* ================ Hero Section ================ */
 header.hero {
   position: relative;
   z-index: 1;
@@ -256,7 +269,7 @@ header.hero {
   }
 }
 
-/* ================ Features ================ */
+/* ================ Features Section ================ */
 .admin-features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -319,7 +332,7 @@ header.hero {
   transition-delay: 1.2s;
 }
 
-/* ================ Footer ================ */
+/* ================ Footer Section ================ */
 .footer {
   padding: 2rem 1rem;
   text-align: center;
