@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-logo')
   ];
 
-  // Ініціалізація теми
+  // Ініціалізація теми та логотипів
   let dark = htmlEl.getAttribute('data-theme') === 'dark';
   function updateLogos() {
     logos.forEach(img => img.src = dark ? img.dataset.dark : img.dataset.light);
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal-left, .reveal-right, .footer').forEach(el => io.observe(el));
 
-  // Service Worker (залишається без змін)
+  // Service Worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/js/service-worker.js');
   }
