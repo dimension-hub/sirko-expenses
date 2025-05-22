@@ -151,7 +151,7 @@ body {
   box-shadow:
     4px 4px 12px rgba(0, 0, 0, .1),
    -4px -4px 12px rgba(255, 255, 255, 1);
-  opacity: 1; /* visible by default */
+  opacity: 1;
 }
 .section.hidden {
   display: none;
@@ -270,11 +270,18 @@ body {
   padding: 1rem 0;
   text-align: center;
 }
+.admin-footer .social {
+  /* щоб не підкреслювати посилання під іконками */
+  text-decoration: none;
+}
 .admin-footer .social a {
   margin: 0 .5rem;
+  text-decoration: none;
+  display: inline-block;
 }
 .admin-footer .social img {
   width: 32px;
+  border: none;
   filter: invert(30%) sepia(30%) saturate(400%) hue-rotate(10deg);
 }
 
