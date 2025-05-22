@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sirko Club — Адміністрування</title>
-  <!-- Google Fonts + Material Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="manifest" href="manifest.json">
+  <!-- Шрифти та Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
   <div class="layout">
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <div class="logo-block">
-        <img src="images/logo-light.png" alt="Sirko Club Logo">
+        <img src="images/logo-light.png" alt="Sirko Club Logo" />
       </div>
       <nav class="sidebar-nav">
         <ul>
@@ -28,52 +31,96 @@
       </nav>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <main class="main">
       <!-- HEADER -->
       <header class="main-header">
-        <button class="burger" id="burger-btn" aria-label="Меню">&#9776;</button>
+        <button class="burger" id="burger-btn" aria-label="Відкрити меню">&#9776;</button>
         <h1>Sirko Адмін</h1>
         <div class="header-meta">
           <div class="motto">Навчаємо з любов’ю до собак</div>
           <div class="header-buttons">
-            <button id="btn-expense-form">Витрати</button>
-            <button id="btn-reports">Звіти</button>
-            <button id="btn-client-map">Карта</button>
+            <button id="btn-expense-form" aria-label="Відкрити форму витрат">Витрати</button>
+            <button id="btn-reports" aria-label="Відкрити звіти">Звіти</button>
+            <button id="btn-client-map" aria-label="Відкрити карту клієнтів">Карта</button>
           </div>
+          <button id="theme-toggle" aria-label="Перемкнути темний режим">
+            <span class="material-icons">dark_mode</span>
+          </button>
         </div>
       </header>
 
       <!-- DASHBOARD -->
       <section id="dashboard" class="section dashboard">
         <div class="cards">
-          <div class="card">
-            <span class="material-icons">calendar_today</span>
-            <div><h3>Сьогоднішні записи</h3><p id="stat-today-bookings">–</p></div>
+          <div class="card" tabindex="0">
+            <span class="material-icons" aria-hidden="true">calendar_today</span>
+            <div>
+              <h3>Сьогоднішні записи</h3>
+              <p id="stat-today-bookings">–</p>
+            </div>
           </div>
-          <div class="card">
-            <span class="material-icons">payment</span>
-            <div><h3>Загальні витрати</h3><p id="stat-expenses">– ₴</p></div>
+          <div class="card" tabindex="0">
+            <span class="material-icons" aria-hidden="true">payment</span>
+            <div>
+              <h3>Загальні витрати</h3>
+              <p id="stat-expenses">– ₴</p>
+            </div>
           </div>
-          <div class="card">
-            <span class="material-icons">person_add</span>
-            <div><h3>Нові клієнти</h3><p id="stat-new-clients">–</p></div>
+          <div class="card" tabindex="0">
+            <span class="material-icons" aria-hidden="true">person_add</span>
+            <div>
+              <h3>Нові клієнти</h3>
+              <p id="stat-new-clients">–</p>
+            </div>
           </div>
-          <div class="card">
-            <span class="material-icons">map</span>
-            <div><h3>Активні сесії</h3><p id="stat-active-sessions">–</p></div>
+          <div class="card" tabindex="0">
+            <span class="material-icons" aria-hidden="true">map</span>
+            <div>
+              <h3>Активні сесії</h3>
+              <p id="stat-active-sessions">–</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SECTIONS -->
-      <section id="expense-form" class="section hidden"><h2>Форма витрат</h2></section>
-      <section id="reports" class="section hidden"><h2>Звіти</h2></section>
-      <section id="client-map" class="section hidden"><h2>Карта клієнтів</h2></section>
+      <!-- SECTIONS WITH SKELETON -->
+      <section id="expense-form" class="section hidden">
+        <div class="skeleton-wrapper">
+          <div class="skeleton-block"></div>
+          <div class="skeleton-block"></div>
+          <div class="skeleton-block"></div>
+        </div>
+        <div class="section-content">
+          <h2>Форма витрат</h2>
+          <!-- TODO: тут ваша форма -->
+        </div>
+      </section>
+
+      <section id="reports" class="section hidden">
+        <div class="skeleton-wrapper">
+          <div class="skeleton-block"></div>
+          <div class="skeleton-block"></div>
+        </div>
+        <div class="section-content">
+          <h2>Звіти</h2>
+          <!-- TODO: тут ваші графіки -->
+        </div>
+      </section>
+
+      <section id="client-map" class="section hidden">
+        <div class="skeleton-wrapper">
+          <div class="skeleton-block map"></div>
+        </div>
+        <div class="section-content">
+          <h2>Карта клієнтів</h2>
+          <!-- TODO: тут Google Maps -->
+        </div>
+      </section>
     </main>
   </div>
 
-  <!-- Зона хаотичних слідів лапок -->
+  <!-- PAW ZONE -->
   <div class="paw-zone">
     <img src="images/paw-print.svg" class="paw paw1" alt="">
     <img src="images/paw-print.svg" class="paw paw2" alt="">
@@ -81,21 +128,37 @@
     <img src="images/paw-print.svg" class="paw paw4" alt="">
   </div>
 
-  <!-- MOBILE TAB NAVIGATION -->
+  <!-- MOBILE TAB NAV -->
   <nav class="mobile-nav">
-    <button id="btn-dashboard-nav"><span class="material-icons">dashboard</span><span>Дашборд</span></button>
-    <button id="btn-expense-nav"><span class="material-icons">receipt_long</span><span>Витрати</span></button>
-    <button id="btn-reports-nav"><span class="material-icons">analytics</span><span>Звіти</span></button>
-    <button id="btn-client-map-nav"><span class="material-icons">place</span><span>Карта</span></button>
+    <button id="btn-dashboard-nav" aria-label="Дашборд">
+      <span class="material-icons">dashboard</span><span>Дашборд</span>
+    </button>
+    <button id="btn-expense-nav" aria-label="Витрати">
+      <span class="material-icons">receipt_long</span><span>Витрати</span>
+    </button>
+    <button id="btn-reports-nav" aria-label="Звіти">
+      <span class="material-icons">analytics</span><span>Звіти</span>
+    </button>
+    <button id="btn-client-map-nav" aria-label="Карта">
+      <span class="material-icons">place</span><span>Карта</span>
+    </button>
   </nav>
 
-  <!-- ADMIN FOOTER -->
+  <!-- FOOTER -->
   <footer class="admin-footer">
     <div class="social">
-      <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram"></a>
-      <a href="https://instagram.com/yourprofile" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/instagram.svg" alt="Instagram"></a>
-      <a href="https://youtube.com/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://tiktok.com/@yourprofile" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://t.me/yourchannel" target="_blank" aria-label="Telegram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram" />
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/instagram.svg" alt="Instagram" />
+      </a>
+      <a href="https://youtube.com/yourchannel" target="_blank" aria-label="YouTube">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/youtube.svg" alt="YouTube" />
+      </a>
+      <a href="https://tiktok.com/@yourprofile" target="_blank" aria-label="TikTok">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/tiktok.svg" alt="TikTok" />
+      </a>
     </div>
   </footer>
 
