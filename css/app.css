@@ -42,6 +42,8 @@ body {
 
 /* MAIN */
 .main { flex: 1; padding: 2rem; }
+
+/* HEADER */
 .main-header {
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; margin-bottom: 2rem;
@@ -50,10 +52,14 @@ body {
   flex: 1; text-align: center;
   font-family: var(--font-head); font-size: 2.5rem;
 }
-.header-meta {
-  display: flex; align-items: center; gap: 1.5rem;
+.header-meta { display: flex; align-items: center; gap: 1.5rem; }
+.motto {
+  flex: 1 1 100%;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--logo-brown-dark);
 }
-.header-meta strong { color: var(--logo-brown-dark); }
 .header-buttons {
   display: flex; gap: 1rem; flex-wrap: wrap;
 }
@@ -74,14 +80,15 @@ body {
 .section {
   background: var(--card); border-radius: var(--radius);
   padding: 1.5rem; margin-top: 1.5rem;
-  box-shadow: 4px 4px 12px rgba(0,0,0,.1), -4px -4px 12px rgba(255,255,255,1);
+  box-shadow: 4px 4px 12px rgba(0,0,0,.1),
+              -4px -4px 12px rgba(255,255,255,1);
 }
 .section h2 {
   font-family: var(--font-head); font-size: 1.75rem; margin-bottom: 1rem;
 }
 .hidden { display: none; }
 
-/* DASHBOARD CARDS */
+/* DASHBOARD */
 .dashboard .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -95,12 +102,8 @@ body {
 .dashboard .card .material-icons {
   font-size: 2rem; color: var(--logo-brown);
 }
-.dashboard .card h3 {
-  margin: 0; font-size: 1rem; font-weight: 600;
-}
-.dashboard .card p {
-  margin: .25rem 0 0; font-size: 1.25rem; font-weight: 700;
-}
+.dashboard .card h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.dashboard .card p { margin: .25rem 0 0; font-size: 1.25rem; font-weight: 700; }
 
 /* PAW ZONE */
 .paw-zone {
@@ -147,7 +150,6 @@ body {
   .main-header h1 { font-size: 2rem; }
   .header-buttons { display: none; }
 
-  /* Tabs below */
   .mobile-nav {
     display: flex; position: fixed; bottom: 0; left: 0;
     width: 100%; height: 60px; background: var(--card);
@@ -155,13 +157,10 @@ body {
     justify-content: space-around; align-items: center; z-index: 1000;
   }
 
-  /* Pawn prints */
-  .paw-zone .paw1 {
-    animation: drop-paw 4s ease-in-out infinite;
-  }
-  .paw-zone .paw2 {
-    animation: drop-paw 4s ease-in-out infinite 2s;
-  }
+  .paw-zone .paw1 { animation: drop-paw 4s ease-in-out infinite; }
+  .paw-zone .paw2 { animation: drop-paw 4s ease-in-out infinite 1s; }
+  .paw-zone .paw3 { animation: drop-paw 4s ease-in-out infinite 2s; }
+  .paw-zone .paw4 { animation: drop-paw 4s ease-in-out infinite 3s; }
 
   .admin-footer { padding-bottom: 80px; }
 }

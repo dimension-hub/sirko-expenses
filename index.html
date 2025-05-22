@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sirko Club — Адміністрування</title>
-  <!-- Google Fonts + Material Icons -->
+  <!-- Шрифти та іконки -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
@@ -35,7 +35,9 @@
         <button class="burger" id="burger-btn" aria-label="Меню">&#9776;</button>
         <h1>Адміністрування</h1>
         <div class="header-meta">
-          <span>Сьогоднішніх записів: <strong id="today-bookings">–</strong></span>
+          <!-- Наш девіз -->
+          <div class="motto">Навчаємо з любов’ю до собак</div>
+          <!-- Таби для десктопу (будуть приховані на мобілці) -->
           <div class="header-buttons">
             <button id="btn-expense-form">Витрати</button>
             <button id="btn-reports">Звіти</button>
@@ -78,7 +80,7 @@
         </div>
       </section>
 
-      <!-- SECTIONS -->
+      <!-- Інші секції -->
       <section id="expense-form" class="section hidden">
         <h2>Форма витрат</h2>
       </section>
@@ -91,33 +93,31 @@
     </main>
   </div>
 
-  <!-- ZONE FOR PAW PRINTS -->
+  <!-- Зона слідів лапок -->
   <div class="paw-zone">
-    <img src="images/paw-print.svg" class="paw paw1" alt="Лапка 1">
-    <img src="images/paw-print.svg" class="paw paw2" alt="Лапка 2">
+    <img src="images/paw-print.svg" class="paw paw1" alt="">
+    <img src="images/paw-print.svg" class="paw paw2" alt="">
+    <img src="images/paw-print.svg" class="paw paw3" alt="">
+    <img src="images/paw-print.svg" class="paw paw4" alt="">
   </div>
 
-  <!-- MOBILE TAB NAVIGATION -->
+  <!-- Мобільна навігація (професійні таби) -->
   <nav class="mobile-nav">
     <button id="btn-dashboard-nav">
-      <span class="material-icons">dashboard</span>
-      <span>Дашборд</span>
+      <span class="material-icons">dashboard</span><span>Дашборд</span>
     </button>
     <button id="btn-expense-nav">
-      <span class="material-icons">receipt_long</span>
-      <span>Витрати</span>
+      <span class="material-icons">receipt_long</span><span>Витрати</span>
     </button>
     <button id="btn-reports-nav">
-      <span class="material-icons">analytics</span>
-      <span>Звіти</span>
+      <span class="material-icons">analytics</span><span>Звіти</span>
     </button>
     <button id="btn-client-map-nav">
-      <span class="material-icons">place</span>
-      <span>Карта</span>
+      <span class="material-icons">place</span><span>Карта</span>
     </button>
   </nav>
 
-  <!-- ADMIN FOOTER -->
+  <!-- Прості соц-іконки у футері -->
   <footer class="admin-footer">
     <div class="social">
       <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram"></a>
