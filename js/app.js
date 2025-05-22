@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Сьогоднішні записи (інтеграція Google Calendar API тут)
-  const todayEl = document.getElementById('today-bookings');
-  todayEl.textContent = 8;
+  // Сьогоднішні записи
+  document.getElementById('today-bookings').textContent = 8;
 
   // Перемикання секцій
   const sections = {
@@ -10,18 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     'btn-client-map':   'client-map'
   };
   Object.entries(sections).forEach(([btnId, secId]) => {
-    document.getElementById(btnId).addEventListener('click', () => {
+    document.getElementById(btnId).onclick = () => {
       Object.values(sections).forEach(id => document.getElementById(id).classList.add('hidden'));
       document.getElementById(secId).classList.remove('hidden');
-    });
+    };
   });
 
   // Burger-Menu toggle
   const burgerBtn = document.getElementById('burger-btn');
   const sidebar   = document.getElementById('sidebar');
-  burgerBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
+  burgerBtn.onclick = () => sidebar.classList.toggle('active');
 
   // Swipe-to-close для sidebar
   let startX = 0;
@@ -29,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startX = e.touches[0].clientX;
   });
   sidebar.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-    // якщо свайп ліворуч більше ніж на 50px — закриваємо меню
-    if (dx < -50) {
+    if (e.changedTouches[0].clientX - startX < -50) {
       sidebar.classList.remove('active');
     }
   });
