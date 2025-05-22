@@ -33,11 +33,9 @@
       <!-- HEADER -->
       <header class="main-header">
         <button class="burger" id="burger-btn" aria-label="Меню">&#9776;</button>
-        <h1>Адміністрування</h1>
+        <h1>Sirko Адмін</h1>
         <div class="header-meta">
-          <!-- Наш девіз -->
           <div class="motto">Навчаємо з любов’ю до собак</div>
-          <!-- Таби для десктопу (будуть приховані на мобілці) -->
           <div class="header-buttons">
             <button id="btn-expense-form">Витрати</button>
             <button id="btn-reports">Звіти</button>
@@ -51,45 +49,27 @@
         <div class="cards">
           <div class="card">
             <span class="material-icons">calendar_today</span>
-            <div>
-              <h3>Сьогоднішні записи</h3>
-              <p id="stat-today-bookings">–</p>
-            </div>
+            <div><h3>Сьогоднішні записи</h3><p id="stat-today-bookings">–</p></div>
           </div>
           <div class="card">
             <span class="material-icons">payment</span>
-            <div>
-              <h3>Загальні витрати</h3>
-              <p id="stat-expenses">– ₴</p>
-            </div>
+            <div><h3>Загальні витрати</h3><p id="stat-expenses">– ₴</p></div>
           </div>
           <div class="card">
             <span class="material-icons">person_add</span>
-            <div>
-              <h3>Нові клієнти</h3>
-              <p id="stat-new-clients">–</p>
-            </div>
+            <div><h3>Нові клієнти</h3><p id="stat-new-clients">–</p></div>
           </div>
           <div class="card">
             <span class="material-icons">map</span>
-            <div>
-              <h3>Активні сесії</h3>
-              <p id="stat-active-sessions">–</p>
-            </div>
+            <div><h3>Активні сесії</h3><p id="stat-active-sessions">–</p></div>
           </div>
         </div>
       </section>
 
-      <!-- Інші секції -->
-      <section id="expense-form" class="section hidden">
-        <h2>Форма витрат</h2>
-      </section>
-      <section id="reports" class="section hidden">
-        <h2>Звіти</h2>
-      </section>
-      <section id="client-map" class="section hidden">
-        <h2>Карта клієнтів</h2>
-      </section>
+      <!-- SECTIONS -->
+      <section id="expense-form" class="section hidden"><h2>Форма витрат</h2></section>
+      <section id="reports" class="section hidden"><h2>Звіти</h2></section>
+      <section id="client-map" class="section hidden"><h2>Карта клієнтів</h2></section>
     </main>
   </div>
 
@@ -101,23 +81,15 @@
     <img src="images/paw-print.svg" class="paw paw4" alt="">
   </div>
 
-  <!-- Мобільна навігація (професійні таби) -->
+  <!-- MOBILE TAB NAVIGATION -->
   <nav class="mobile-nav">
-    <button id="btn-dashboard-nav">
-      <span class="material-icons">dashboard</span><span>Дашборд</span>
-    </button>
-    <button id="btn-expense-nav">
-      <span class="material-icons">receipt_long</span><span>Витрати</span>
-    </button>
-    <button id="btn-reports-nav">
-      <span class="material-icons">analytics</span><span>Звіти</span>
-    </button>
-    <button id="btn-client-map-nav">
-      <span class="material-icons">place</span><span>Карта</span>
-    </button>
+    <button id="btn-dashboard-nav"><span class="material-icons">dashboard</span><span>Дашборд</span></button>
+    <button id="btn-expense-nav"><span class="material-icons">receipt_long</span><span>Витрати</span></button>
+    <button id="btn-reports-nav"><span class="material-icons">analytics</span><span>Звіти</span></button>
+    <button id="btn-client-map-nav"><span class="material-icons">place</span><span>Карта</span></button>
   </nav>
 
-  <!-- Прості соц-іконки у футері -->
+  <!-- ADMIN FOOTER -->
   <footer class="admin-footer">
     <div class="social">
       <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram"></a>
