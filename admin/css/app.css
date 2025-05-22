@@ -1,35 +1,27 @@
-/* ================= VARIABLES ================= */
 :root {
-  --bg: #FAF4E6;
-  --card: #F2E1D1;
-  --logo-brown: #8B6236;
-  --logo-brown-dark: #6B432F;
+  --bg: #FAF4E6;               /* кремовий фон */
+  --card: #F2E1D1;             /* підкладки */
+  --logo-brown: #8B6236;       /* основний коричневий */
+  --logo-brown-dark: #6B432F;  /* темніший відтінок */
   --radius: 12px;
   --font-base: 'Open Sans', sans-serif;
   --font-head: 'Playfair Display', serif;
 }
 
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  position: relative; /* для paw-print */
+  position: relative; /* для лапки */
   background: var(--bg);
   color: var(--logo-brown);
   font-family: var(--font-base);
   line-height: 1.6;
 }
 
-/* ================= LAYOUT ================= */
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
+/* LAYOUT */
+.layout { display: flex; min-height: 100vh; }
 
-/* ----- Sidebar ----- */
+/* SIDEBAR */
 .sidebar {
   flex: 0 0 240px;
   background: var(--card);
@@ -44,13 +36,8 @@ body {
   border-radius: var(--radius);
   margin-bottom: 2rem;
 }
-.sidebar-nav ul {
-  list-style: none;
-  width: 100%;
-}
-.sidebar-nav li + li {
-  margin-top: 1rem;
-}
+.sidebar-nav ul { list-style: none; width: 100%; }
+.sidebar-nav li + li { margin-top: 1rem; }
 .sidebar-nav a {
   display: block;
   text-decoration: none;
@@ -65,11 +52,8 @@ body {
   color: #fff;
 }
 
-/* ----- Main ----- */
-.main {
-  flex: 1;
-  padding: 2rem;
-}
+/* MAIN */
+.main { flex: 1; padding: 2rem; }
 .main-header {
   display: flex;
   align-items: center;
@@ -89,9 +73,7 @@ body {
   gap: 1.5rem;
   font-size: 1rem;
 }
-.header-meta strong {
-  color: var(--logo-brown-dark);
-}
+.header-meta strong { color: var(--logo-brown-dark); }
 .header-buttons {
   display: flex;
   gap: 1rem;
@@ -111,7 +93,7 @@ body {
   background: var(--logo-brown-dark);
 }
 
-/* ----- Burger Icon ----- */
+/* BURGER ICON */
 .burger {
   display: none;
   background: none;
@@ -121,7 +103,7 @@ body {
   cursor: pointer;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 .section {
   background: var(--card);
   border-radius: var(--radius);
@@ -136,43 +118,34 @@ body {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
+.hidden { display: none; }
 
-/* ================= PAW ANIMATION ================= */
+/* ANIMATED PAW */
 .paw-print {
-  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 100px;
   height: 100px;
   opacity: 0;
-  z-index: 500;
+  z-index: 1000;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
 }
 @media (max-width: 768px) {
   .paw-print {
-    display: block;
+    opacity: 1;
     animation: paw-pop 2s ease-in-out infinite alternate;
   }
 }
 @keyframes paw-pop {
-  from {
-    transform: scale(0.8) rotate(-10deg);
-    opacity: 0.5;
-  }
-  to {
-    transform: scale(1.1) rotate(0deg);
-    opacity: 1;
-  }
+  from { transform: scale(0.8) rotate(-10deg); }
+  to   { transform: scale(1.1) rotate(0deg); }
 }
 
-/* ======== HIDE ======== */
-.hidden {
-  display: none;
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  /* sidebar приховано по замовчуванню */
+  /* Sidebar hidden by default */
   .sidebar {
     position: fixed;
     top: 0; left: 0;
@@ -183,20 +156,10 @@ body {
   .sidebar.active {
     transform: translateX(0);
   }
-  /* показати burger */
-  .burger {
-    display: block;
-  }
-  /* головний контент займає весь екран */
-  .layout {
-    flex-direction: column;
-  }
-  .main {
-    padding: 1rem;
-  }
-  .main-header h1 {
-    font-size: 2rem;
-  }
+  .burger { display: block; }
+  .layout { flex-direction: column; }
+  .main { padding: 1rem; }
+  .main-header h1 { font-size: 2rem; }
   .header-buttons {
     flex-direction: column;
     width: 100%;
