@@ -38,7 +38,7 @@ body {
 .sidebar-nav a {
   display:block; text-decoration:none; color:var(--logo-brown);
   font-weight:600; padding:0.75rem; border-radius:var(--radius);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s,color 0.3s;
 }
 .sidebar-nav a:hover { background:var(--logo-brown); color:#fff; }
 
@@ -83,31 +83,41 @@ body {
 }
 .hidden { display:none; }
 
-/* PAW ANIMATION */
+/* ANIMATED PAWS */
 .paw {
   position: fixed; width:80px; height:80px;
   pointer-events:none; z-index:1000; opacity:0;
 }
-.paw1 { animation: paw-walk 12s ease-in-out forwards; }
-.paw2 { animation: paw-walk 12s ease-in-out 3s forwards; }
+@media (max-width:768px) {
+  .paw { opacity:1; }
 
-@keyframes paw-walk {
-  0% {
-    transform: scale(1) translate(0,0) rotate(0deg);
-    opacity: 0;
+  /* нижня лапка — ходить ліворуч-праворуч */
+  .paw1 {
+    bottom:20px; left:20px;
+    animation: walk-horizontal 10s ease-in-out infinite;
   }
-  10% {
-    transform: scale(1.5) translate(0,0) rotate(0deg);
-    opacity: 1;
+
+  /* права лапка — ходить вгору-вниз */
+  .paw2 {
+    top:20px; right:20px;
+    animation: walk-vertical 10s ease-in-out infinite 5s;
   }
-  20% { transform: scale(1) translate(-50vw,-50vh) rotate(30deg); }
-  40% { transform: scale(1) translate(50vw,-50vh) rotate(30deg); }
-  60% { transform: scale(1) translate(50vw,50vh) rotate(30deg); }
-  80% { transform: scale(1) translate(-50vw,50vh) rotate(30deg); }
-  100% {
-    transform: scale(1) translate(0,0) rotate(0deg);
-    opacity: 1;
-  }
+}
+
+@keyframes walk-horizontal {
+  0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+  25%  { transform: translateX(calc(50vw - 60px)) translateY(-10px) rotate(5deg); }
+  50%  { transform: translateX(calc(100vw - 100px)) translateY(0) rotate(0deg); }
+  75%  { transform: translateX(calc(50vw - 60px)) translateY(-10px) rotate(-5deg); }
+  100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+@keyframes walk-vertical {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  25%  { transform: translate(-10px, calc(50vh - 60px)) rotate(5deg); }
+  50%  { transform: translate(0, calc(100vh - 100px)) rotate(0deg); }
+  75%  { transform: translate(-10px, calc(50vh - 60px)) rotate(-5deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
 }
 
 /* RESPONSIVE */
