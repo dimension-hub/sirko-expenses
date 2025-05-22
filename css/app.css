@@ -54,7 +54,9 @@ body {
   flex:1; text-align:center;
   font-family:var(--font-head); font-size:2.5rem;
 }
-.header-meta { display:flex; align-items:center; gap:1.5rem; }
+.header-meta {
+  display:flex; align-items:center; gap:1.5rem;
+}
 .header-meta strong { color:var(--logo-brown-dark); }
 .header-buttons {
   display:flex; gap:1rem; flex-wrap:wrap;
@@ -83,21 +85,12 @@ body {
 }
 .hidden { display:none; }
 
-/* ADMIN FOOTER */
-.admin-footer {
+/* PAW ZONE */
+.paw-zone {
   position: relative;
-  background: var(--card);
-  padding: 1rem 0;
-  text-align: center;
+  height: 150px; /* достатньо місця для слідів */
   overflow: hidden;
 }
-.admin-footer .social img {
-  width: 32px;
-  margin: 0 .5rem;
-  filter: invert(30%) sepia(30%) saturate(400%) hue-rotate(10deg);
-}
-
-/* PAW PRINTS IN FOOTER */
 .paw {
   position: absolute;
   width: 40px; height: 40px;
@@ -106,9 +99,23 @@ body {
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
+/* ADMIN FOOTER */
+.admin-footer {
+  background: var(--card);
+  padding: 1rem 0;
+  text-align: center;
+}
+.admin-footer .social a {
+  display: inline-block;
+  margin: 0 .5rem;
+}
+.admin-footer .social img {
+  width: 32px;
+  filter: invert(30%) sepia(30%) saturate(400%) hue-rotate(10deg);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  /* Burger & sidebar */
   .sidebar {
     position: fixed; top: 0; left: 0;
     height: 100%; transform: translateX(-100%);
@@ -116,29 +123,7 @@ body {
   }
   .sidebar.active { transform: translateX(0); }
   .burger { display: block; }
-
-  /* Adjust main padding */
-  .main { padding: 1rem; }
-  .main-header h1 { font-size: 2rem; }
-  .header-buttons button { width: 100%; }
-
-  /* Paw prints animation in footer */
-  .admin-footer .paw1 { animation: footer-paw 3s ease-in-out infinite; }
-  .admin-footer .paw2 { animation: footer-paw 3s ease-in-out infinite 1.5s; }
-}
-
-@keyframes footer-paw {
-  0% {
-    opacity: 0;
-    transform: translate(0,0) scale(0.5) rotate(0deg);
-  }
-  10% {
-    opacity: 1;
-    transform: translate(var(--x), var(--y)) scale(1) rotate(var(--r));
-  }
-  80% { opacity: 1; }
-  100% {
-    opacity: 0;
-    transform: translate(var(--x2), var(--y2)) scale(0.5) rotate(var(--r2));
-  }
+  .main { padding:1rem; }
+  .main-header h1 { font-size:2rem; }
+  .header-buttons button { width:100%; }
 }
