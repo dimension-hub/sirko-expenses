@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Підтягуємо сьогоднішні записи (Google Calendar API інтегрувати тут)
+  // Підтягуємо сьогоднішні записи (інтегрувати Google Calendar API тут)
   const todayEl = document.getElementById('today-bookings');
   todayEl.textContent = 8;
 
-  // Toggle секцій (Форма витрат, Звіти, Карта клієнтів)
+  // Показ секцій
   const sections = {
     'btn-expense-form': 'expense-form',
     'btn-reports':      'reports',
@@ -11,16 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   Object.entries(sections).forEach(([btnId, secId]) => {
     document.getElementById(btnId).addEventListener('click', () => {
-      // сховати всі
-      Object.values(sections).forEach(id => {
-        document.getElementById(id).classList.add('hidden');
-      });
-      // показати обрану
+      Object.values(sections).forEach(id => document.getElementById(id).classList.add('hidden'));
       document.getElementById(secId).classList.remove('hidden');
     });
   });
 
-  // Burger-Menu
+  // BurgerMenu
   const burgerBtn = document.getElementById('burger-btn');
   const sidebar   = document.getElementById('sidebar');
   burgerBtn.addEventListener('click', () => {

@@ -1,9 +1,9 @@
 /* ================= VARIABLES ================= */
 :root {
-  --bg: #FAF4E6;               /* фон */
-  --card: #F2E1D1;             /* картки */
-  --logo-brown: #8B6236;       /* основний коричневий */
-  --logo-brown-dark: #6B432F;  /* темніший */
+  --bg: #FAF4E6;
+  --card: #F2E1D1;
+  --logo-brown: #8B6236;
+  --logo-brown-dark: #6B432F;
   --radius: 12px;
   --font-base: 'Open Sans', sans-serif;
   --font-head: 'Playfair Display', serif;
@@ -16,6 +16,7 @@
   box-sizing: border-box;
 }
 body {
+  position: relative; /* для paw-print */
   background: var(--bg);
   color: var(--logo-brown);
   font-family: var(--font-base);
@@ -134,6 +135,34 @@ body {
   font-family: var(--font-head);
   font-size: 1.75rem;
   margin-bottom: 1rem;
+}
+
+/* ================= PAW ANIMATION ================= */
+.paw-print {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  z-index: 500;
+}
+@media (max-width: 768px) {
+  .paw-print {
+    display: block;
+    animation: paw-pop 2s ease-in-out infinite alternate;
+  }
+}
+@keyframes paw-pop {
+  from {
+    transform: scale(0.8) rotate(-10deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* ======== HIDE ======== */
