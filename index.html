@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sirko Club — Адміністрування</title>
-  <!-- Шрифти та Material Icons -->
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
@@ -45,7 +44,7 @@
             <button id="btn-client-map" aria-label="Відкрити карту клієнтів">Карта</button>
           </div>
           <button id="theme-toggle" aria-label="Перемкнути темний режим">
-            <span class="material-icons">dark_mode</span>
+            <span class="material-icons" id="theme-icon">dark_mode</span>
           </button>
         </div>
       </header>
@@ -86,33 +85,33 @@
 
       <!-- SECTIONS WITH SKELETON -->
       <section id="expense-form" class="section hidden">
-        <div class="skeleton-wrapper">
+        <div class="skeleton-wrapper hidden">
           <div class="skeleton-block"></div>
           <div class="skeleton-block"></div>
           <div class="skeleton-block"></div>
         </div>
-        <div class="section-content">
+        <div class="section-content hidden">
           <h2>Форма витрат</h2>
           <!-- TODO: тут ваша форма -->
         </div>
       </section>
 
       <section id="reports" class="section hidden">
-        <div class="skeleton-wrapper">
+        <div class="skeleton-wrapper hidden">
           <div class="skeleton-block"></div>
           <div class="skeleton-block"></div>
         </div>
-        <div class="section-content">
+        <div class="section-content hidden">
           <h2>Звіти</h2>
           <!-- TODO: тут ваші графіки -->
         </div>
       </section>
 
       <section id="client-map" class="section hidden">
-        <div class="skeleton-wrapper">
+        <div class="skeleton-wrapper hidden">
           <div class="skeleton-block map"></div>
         </div>
-        <div class="section-content">
+        <div class="section-content hidden">
           <h2>Карта клієнтів</h2>
           <!-- TODO: тут Google Maps -->
         </div>
