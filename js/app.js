@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Today’s bookings (Google Calendar API інтегрувати тут)
+  // 1. Today’s bookings
   document.getElementById('today-bookings').textContent = 8;
 
   // 2. Toggle секцій
@@ -29,24 +29,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Paw prints “footprint” effect on mobile
+  // 4. Paw prints in footer
   if (window.innerWidth <= 768) {
-    const paws = document.querySelectorAll('.paw');
+    const footer = document.querySelector('.admin-footer');
+    const paws = footer.querySelectorAll('.paw');
     function animatePaw(paw) {
-      const w = window.innerWidth - 80,
-            h = window.innerHeight - 80;
-      const x = Math.random() * w,
-            y = Math.random() * h,
-            angle = (Math.random() * 60) - 30;
-      paw.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
-      paw.style.opacity = '1';
-
-      const visible = 2000 + Math.random() * 2000;
-      setTimeout(() => {
-        paw.style.opacity = '0';
-        setTimeout(() => animatePaw(paw), 1000 + Math.random() * 2000);
-      }, visible);
+      const fw = footer.clientWidth - paw.clientWidth;
+      const fh = footer.clientHeight - paw.clientHeight;
+      // random positions & rotations
+      const x  = Math.random() * fw;
+      const y  = Math.random() * fh;
+      const r  = (Math.random()*60) - 30;
+      const x2 = Math.random() * fw;
+      const y2 = Math.random() * fh;
+      const r2 = (Math.random()*60) - 30;
+      // set CSS variables for keyframe
+      paw.style.setProperty('--x', `${x}px`);
+      paw.style.setProperty('--y', `${y}px`);
+      paw.style.setProperty('--r', `${r}deg`);
+      paw.style.setProperty('--x2', `${x2}px`);
+      paw.style.setProperty('--y2', `${y2}px`);
+      paw.style.setProperty('--r2', `${r2}deg`);
+      // restart animation
+      paw.style.opacity = '';
+      void paw.offsetWidth;
+      paw.style.opacity = '';
     }
-    paws.forEach(paw => setTimeout(() => animatePaw(paw), Math.random() * 3000));
+    // kick off animations
+    paws.forEach((paw, i) => {
+      setTimeout(() => animatePaw(paw), i * 1000);
+      // repeat every cycle
+      setInterval(() => animatePaw(paw), 3000);
+    });
   }
 });
