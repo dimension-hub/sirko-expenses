@@ -151,8 +151,7 @@ body {
   box-shadow:
     4px 4px 12px rgba(0, 0, 0, .1),
    -4px -4px 12px rgba(255, 255, 255, 1);
-  /* видима за замовчуванням */
-  opacity: 1;
+  opacity: 1; /* visible by default */
 }
 .section.hidden {
   display: none;
@@ -221,6 +220,11 @@ body {
   font-weight: 700;
 }
 
+/* Dark-mode card background */
+.dark-mode .dashboard .card {
+  background: #4A4A4A;
+}
+
 /* PAW ZONE */
 .paw-zone {
   position: relative;
@@ -278,7 +282,8 @@ body {
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100%;
     transform: translateX(-100%);
     z-index: 1000;
@@ -298,8 +303,10 @@ body {
   .mobile-nav {
     display: flex;
     position: fixed;
-    bottom: 0; left: 0;
-    width: 100%; height: 60px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
     background: var(--card);
     border-top: 2px solid var(--logo-brown-dark);
     justify-content: space-around;
