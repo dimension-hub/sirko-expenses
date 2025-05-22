@@ -37,12 +37,46 @@
         <div class="header-meta">
           <span>Сьогоднішніх записів: <strong id="today-bookings">–</strong></span>
           <div class="header-buttons">
-            <button id="btn-expense-form">Форма витрат</button>
+            <button id="btn-expense-form">Витрати</button>
             <button id="btn-reports">Звіти</button>
-            <button id="btn-client-map">Карта клієнтів</button>
+            <button id="btn-client-map">Карта</button>
           </div>
         </div>
       </header>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="section dashboard">
+        <div class="cards">
+          <div class="card">
+            <span class="material-icons">calendar_today</span>
+            <div>
+              <h3>Сьогоднішні записи</h3>
+              <p id="stat-today-bookings">–</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons">payment</span>
+            <div>
+              <h3>Загальні витрати</h3>
+              <p id="stat-expenses">– ₴</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons">person_add</span>
+            <div>
+              <h3>Нові клієнти</h3>
+              <p id="stat-new-clients">–</p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="material-icons">map</span>
+            <div>
+              <h3>Активні сесії</h3>
+              <p id="stat-active-sessions">–</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- SECTIONS -->
       <section id="expense-form" class="section hidden">
@@ -65,6 +99,10 @@
 
   <!-- MOBILE TAB NAVIGATION -->
   <nav class="mobile-nav">
+    <button id="btn-dashboard-nav">
+      <span class="material-icons">dashboard</span>
+      <span>Дашборд</span>
+    </button>
     <button id="btn-expense-nav">
       <span class="material-icons">receipt_long</span>
       <span>Витрати</span>
@@ -79,7 +117,7 @@
     </button>
   </nav>
 
-  <!-- ADMIN FOOTER (лише соц-іконки) -->
+  <!-- ADMIN FOOTER -->
   <footer class="admin-footer">
     <div class="social">
       <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram"></a>
