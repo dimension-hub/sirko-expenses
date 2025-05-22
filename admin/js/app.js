@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Сьогоднішні записи (інтегруйте Google Calendar API)
+  // Сьогоднішні записи (інтеграція Google Calendar API тут)
   const todayEl = document.getElementById('today-bookings');
   todayEl.textContent = 8;
 
@@ -21,5 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar   = document.getElementById('sidebar');
   burgerBtn.addEventListener('click', () => {
     sidebar.classList.toggle('active');
+  });
+
+  // Swipe-to-close для sidebar
+  let startX = 0;
+  sidebar.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+  sidebar.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    // якщо свайп ліворуч більше ніж на 50px — закриваємо меню
+    if (dx < -50) {
+      sidebar.classList.remove('active');
+    }
   });
 });
