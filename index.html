@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sirko Club — Адміністрування</title>
-  <!-- Google Fonts -->
+  <!-- Google Fonts + Material Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
   <link rel="manifest" href="manifest.json">
 </head>
@@ -62,7 +63,23 @@
     <img src="images/paw-print.svg" class="paw paw2" alt="Лапка 2">
   </div>
 
-  <!-- ADMIN FOOTER -->
+  <!-- MOBILE TAB NAVIGATION -->
+  <nav class="mobile-nav">
+    <button id="btn-expense-nav">
+      <span class="material-icons">receipt_long</span>
+      <span>Витрати</span>
+    </button>
+    <button id="btn-reports-nav">
+      <span class="material-icons">analytics</span>
+      <span>Звіти</span>
+    </button>
+    <button id="btn-client-map-nav">
+      <span class="material-icons">place</span>
+      <span>Карта</span>
+    </button>
+  </nav>
+
+  <!-- ADMIN FOOTER (лише соц-іконки) -->
   <footer class="admin-footer">
     <div class="social">
       <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/telegram.svg" alt="Telegram"></a>
