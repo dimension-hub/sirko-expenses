@@ -145,7 +145,6 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  /* Sidebar hidden by default */
   .sidebar {
     position: fixed;
     top: 0; left: 0;
@@ -153,18 +152,11 @@ body {
     transform: translateX(-100%);
     z-index: 1000;
   }
-  .sidebar.active {
-    transform: translateX(0);
-  }
+  .sidebar.active { transform: translateX(0); }
   .burger { display: block; }
   .layout { flex-direction: column; }
   .main { padding: 1rem; }
   .main-header h1 { font-size: 2rem; }
-  .header-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-  .header-buttons button {
-    width: 100%;
-  }
+  .header-buttons { flex-direction: column; width: 100%; }
+  .header-buttons button { width: 100%; }
 }
